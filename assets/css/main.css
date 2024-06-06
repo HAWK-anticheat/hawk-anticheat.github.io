@@ -927,25 +927,25 @@ d-appendix a.footnote-backlink:hover {
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
-  }
+}
   
 
-  .tab-container {
+.tab-container {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 20px;
-  }
+}
   
-  .tab-container .label {
+.tab-container .label {
     margin-right: 20px;
     font-weight: 500;
     font-size: 18px;
     color: #404040;
-  }
+}
   
   
-  .tab-button {
+.tab-button {
     margin: 5px 25px;
     padding: 5px 20px;
     background-color: #6096d8;
@@ -955,32 +955,32 @@ d-appendix a.footnote-backlink:hover {
     border-radius: 5px;
     width: 200px;
     text-align: center;
-  }
+}
   
-  .tab-button.active {
+.tab-button.active {
     background-color: #2237b2;
     color: #fff;
     border-color: #4052b7;
-  }
+}
   
-  .tab-button:hover {
+.tab-button:hover {
     background-color: #3854c4;
-  }
+}
   
-  .content-container {
+.content-container {
     display: none;
-  }
+}
   
-  .content-container.active {
+.content-container.active {
     display: block;
-  }
+}
   
-  .center-container {
+.center-container {
     text-align: center;
-  }
+}
 
-  .video-description {
+.video-description {
     text-align: justify;
     margin-top: 30px;
-  }
+}
   
