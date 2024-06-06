@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <!-- Head -->
-
 <head>
   <!-- Standard metadata -->
   <meta charset="utf-8">
@@ -12,9 +10,6 @@
   <meta name="author" content="Anonymous" />
   <meta name="description" content="A Pathfinder of Next-Generation Anti-Cheat Framework for FPS Games" />
   <meta name="keywords" content=" " />
-
-  <!-- Google Search Verification -->
-  <!-- <meta name="google-site-verification" content="aF7wSOljWeE2IT3HvAhPwdnNxup1zdKCrFf50yCFMoE" /> -->
 
   <!-- Bootstrap & MDB -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -36,6 +31,7 @@
   <!-- Styles -->
   <link rel="icon" href="./assets/img/icon.png">
   <link rel="stylesheet" href="./assets/css/main.css">
+  <link rel="stylesheet" href="styles.css">
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VHPFHC4JTP"></script>
@@ -43,105 +39,133 @@
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-
     gtag('config', 'G-VHPFHC4JTP');
   </script>
 </head>
 
 <!-- Body -->
-
 <body>
-
   <!-- Content -->
   <div class="container project_container mt-5">
     <div class="post">
-
       <!---------------------------- HEADER ---------------------------->
-      <header class="project-title" style="text-align: center; ">
-        <h1 class="project-title" style="font-weight: bold; color: #404040; font-size: 38px;">A Pathfinder of Next-Generation Anti-Cheat Framework for FPS Games</h1>
-        <h3>
-          <!-- <a href="" target="_blank" rel="noopener noreferrer">Anonymous</a><sup>1</sup>, -->
-          <!-- <a href="https://scholar.google.com/citations?user=W5796yEAAAAJ" target="_blank"
-            rel="noopener noreferrer">Anonymous</a> -->
-        </h3>
-        <!-- <div class="flex-center"><strong style="font-size: 1.35rem;padding-right: 20px; color: #B509AC;">Submmited to Usenix Security 2024</strong><iframe src="https://ghbtns.com/github-btn.html?user=linghaoChan&repo=HumanMAC&type=star&count=true&size=large" frameborder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe></div> -->
-        <!-- <div class="publications project-links">
-          <a href="" class="btn" role="button" target="_blank"
-            rel="noopener noreferrer">arXiv</a>
-          <a href="" class="btn" role="button" target="_blank"
-            rel="noopener noreferrer">Slides</a>
-          <a href="" class="btn" role="button" target="_blank"
-            rel="noopener noreferrer">Poster</a>
-        </div> -->
-
+      <header class="project-title" style="text-align: center; margin-top: 30px;">
+        <h1 class="project-title" style="font-weight: bold; color: #404040; font-size: 36px;">
+          A Pathfinder of Next-Generation Anti-Cheat Framework for FPS Games
+        </h1>
       </header>
 
-      <!---------------------------- ABSTRACT ---------------------------->
-      <!-- <div class="h-100 d-flex align-items-center justify-content-center" style="margin-top: 30px">
-        <div class="project-narrow" id="abstract" style="text-align: justify;">
-          <h3 style="text-align: center;">Abstract</h3>
-          <i>
-            TBD
-          </i>
-        </div>
-      </div> -->
-
       <!---------------------------- Video ---------------------------->
-      <!-- Video Section Title -->
-      <div class="h-100 d-flex align-items-center justify-content-center" style="margin-top: 50px">
-        <div class="project-narrow" id="architecture" style="text-align: justify;">
-          <h3 style="text-align: center; margin-bottom: 0;">Real-World Effect Verification</h3>
+      <!-- Tab Navigation -->
+      <div class="tab-container" style="margin-top: 40px;">
+        <div class="label">Choose a Cheat Type:</div>
+        <div class="tab-button active" data-target="aimbot">Aimbot</div>
+        <div class="tab-button" data-target="wallhack">Wallhack</div>
+      </div>
+
+      <!-- Aimbot Content -->
+      <div id="aimbot" class="content-container active">
+        <div class="h-100 d-flex align-items-center justify-content-center" style="margin-top: 50px">
+          <div class="project-narrow" id="architecture" style="text-align: justify;">
+            <h3 style="text-align: center; margin-bottom: 0; font-size: 20px; font-weight: 300; color: #404040;">
+              Aimbot assists with a player’s aiming and shooting, with which the cheaters possess an unnatural level of precision and efficiency.
+            </h3>
+          </div>
+        </div>
+
+        
+        
+
+        <div class="center-container">
+          <div class="card card-video" style="margin-top:20px">
+            <iframe id="videoFrame" width="100%" style="aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/CDxNQXvRhag"
+              title="Video Player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <div class="center-container">
+          <div class="publications project-links" style="text-align: center; margin-bottom: 0px;">
+            <button class="btn video-btn" data-video-url="https://www.youtube.com/embed/CDxNQXvRhag">Blatant Cheaters</button>
+            <button class="btn video-btn" data-video-url="https://www.youtube.com/embed/6wJFPrGygXI">Disguised Cheaters</button>
+            <button class="btn video-btn" data-video-url="https://www.youtube.com/embed/UT_aYP6kaSQ">Stealth Cheaters</button>
+          </div>
+        </div>
+
+
+        <div class="video-description" style="text-align: justify; margin-top: 30px;">
+          <p>
+            Descriptions TBD.
+          </p>
+        </div>
+
+
+      </div>
+
+      <!-- Wallhack Content -->
+      <div id="wallhack" class="content-container">
+        <div class="h-100 d-flex align-items-center justify-content-center" style="margin-top: 50px">
+          <div class="project-narrow" id="architecture" style="text-align: justify;">
+            <h3 style="text-align: center; margin-bottom: 0; font-size: 20px; font-weight: 300; color: #404040;">
+              Wallhack allows players to visually penetrate walls and other physical obstructions, letting them easily spot and track opponents across the map.
+            </h3>
+          </div>
+        </div>
+
+        <div class="center-container">
+          <div class="card card-video" style="margin-top:20px">
+            <iframe id="videoFrame2" width="100%" style="aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/CDxNQXvRhag"
+              title="Video Player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <div class="center-container">
+          <div class="publications project-links" style="text-align: center; margin-bottom: 0px;">
+            <button class="btn video-btn" data-video-url="https://www.youtube.com/embed/CDxNQXvRhag">Blatant Cheaters</button>
+            <button class="btn video-btn" data-video-url="https://www.youtube.com/embed/6wJFPrGygXI">Disguised Cheaters</button>
+            <button class="btn video-btn" data-video-url="https://www.youtube.com/embed/UT_aYP6kaSQ">Stealth Cheaters</button>
+          </div>
+        </div>
+        
+        <div class="video-description" style="text-align: justify; margin-top: 30px;">
+          <p>
+            Descriptions TBD.
+          </p>
         </div>
       </div>
-
-      <!-- Video Buttons -->
-      <div class="center-container">
-        <div class="publications project-links" style="text-align: center; margin-bottom: 0px;">
-          <button class="btn video-btn" data-video-url="https://www.youtube.com/embed/CDxNQXvRhag">CS2 Training</button>
-          <button class="btn video-btn" data-video-url="https://www.youtube.com/embed/6wJFPrGygXI">CF Competitive</button>
-          <button class="btn video-btn" data-video-url="https://www.youtube.com/embed/UT_aYP6kaSQ">CS2 Competitive</button>
-        </div>
-      </div>
-
-      <!-- Video Display -->
-      <div class="center-container">
-        <div class="card card-video" style="margin-top:20px">
-          <iframe id="videoFrame" width="100%" style="aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/CDxNQXvRhag"
-            title="Video Player" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen></iframe>
-        </div>
-      </div>
-      <div class="video-description" style="text-align: justify; margin-top: 30px;">
-        <p>
-          The small window at the top left of the screen represents the real-time gameplay using visual aimbots with the Invisibility Cloak system, while the small window at the bottom represents the real-time cheating gameplay of original visual aimbots without any protective measures. It is obvious that without any protection, visual aimbots can detect enemies appearing within the 320*320 resolution at the center of the screen in real-time. However, after deploying the Invisibility Cloak, it prevents the visual aimbots from detecting enemies on the screen while ensuring the smoothness of the footage.
-          <br>
-          <strong>Note:</strong> It is recommended to adjust the video quality to the highest setting.
-        </p>
-      </div>
-
-
-  <br>
-  <!-- <p style="text-align:right;font-size:small;">
-    The website template was adapted from <a>German Barquero</a>.
-  </p> -->
-
+    </div>
+  </div>
 
   <!-- JavaScripts -->
-  <!-- jQuery -->
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var videoButtons = document.querySelectorAll('.video-btn');
-  
-      videoButtons.forEach(function(btn) {
-        btn.addEventListener('click', function() {
-          var videoUrl = btn.getAttribute('data-video-url');
-          document.getElementById('videoFrame').src = videoUrl;
+    document.querySelectorAll('.tab-button').forEach(button => {
+      button.addEventListener('click', () => {
+        document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        const target = button.getAttribute('data-target');
+        document.querySelectorAll('.content-container').forEach(container => {
+          container.classList.remove('active');
+          if (container.id === target) {
+            container.classList.add('active');
+          }
         });
       });
     });
+
+    document.querySelectorAll('.video-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const videoUrl = button.getAttribute('data-video-url');
+        const videoFrame = document.querySelector('.content-container.active .card-video iframe');
+        videoFrame.src = videoUrl;
+      });
+    });
   </script>
-  
+
+  <!-- jQuery -->
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
@@ -178,7 +202,6 @@
     src="https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js"></script>
   <script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 
-
   <script>
     $(function () {
       $(".dropdown-menu a").click(function () {
@@ -214,87 +237,5 @@
       });
     });
   </script>
-
-  <!-- <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var gameButtons = document.querySelectorAll('.game-selection .game-btn');
-      var mapDropdownButton = document.getElementById('mapDropdown');
-      var mapDropdownMenu = mapDropdownButton.nextElementSibling;
-      var cloakImage = document.getElementById('cloakImage');
-
-      var gameMaps = {
-        'CF': ['Aquarium', 'Coconut Island', 'Pyramid', 'Transport Ship', 'Stable', 'Dust Grey', 'Training Ground'],
-        'CS2': ['Anubis', 'Inferno', 'Mirage', 'Nuke', 'Vertigo', 'Dust2', 'Repository']
-      };
-
-      var mapImages = {
-        'CF': {
-          'Aquarium': './assets/img/InvisCloak/cf_combine/cf_aquarium.jpg',
-          'Coconut Island': './assets/img/InvisCloak/cf_combine/cf_coconut_island.jpg',
-          'Pyramid': './assets/img/InvisCloak/cf_combine/cf_pyramid.jpg',
-          'Transport Ship': './assets/img/InvisCloak/cf_combine/cf_ship.jpg',
-          'Stable': './assets/img/InvisCloak/cf_combine/cf_stable.jpg',
-          'Dust Grey': './assets/img/InvisCloak/cf_combine/team_dust.jpg',
-          'Training Ground': './assets/img/InvisCloak/cf_combine/training_ground.jpg'
-        },
-        'CS2': {
-          'Anubis': './assets/img/InvisCloak/cs2_combine/deathmatch_Anubis.jpg',
-          'Inferno': './assets/img/InvisCloak/cs2_combine/deathmatch_Inferno.jpg',
-          'Mirage': './assets/img/InvisCloak/cs2_combine/deathmatch_Mirage.jpg',
-          'Nuke': './assets/img/InvisCloak/cs2_combine/deathmatch_Nuke.jpg',
-          'Vertigo': './assets/img/InvisCloak/cs2_combine/deathmatch_Vertigo.jpg',
-          'Dust2': './assets/img/InvisCloak/cs2_combine/dust2.jpg',
-          'Repository': './assets/img/InvisCloak/cs2_combine/Repository.jpg',
-        }
-      };
-
-      function updateMapDropdown(game) {
-        var maps = gameMaps[game];
-        mapDropdownMenu.innerHTML = '';
-        maps.forEach(function(mapName) {
-          var option = document.createElement('a');
-          option.classList.add('dropdown-item');
-          option.href = '#';
-          option.textContent = mapName;
-          option.dataset.imgSrc = mapImages[game][mapName];
-          option.addEventListener('click', function(event) {
-            event.preventDefault();
-            mapDropdownButton.textContent = mapName;
-            lazyLoadImage(cloakImage, mapImages[game][mapName]);
-          });
-          mapDropdownMenu.appendChild(option);
-        });
-        mapDropdownButton.textContent = "Select a Map";
-      }
-
-      gameButtons.forEach(function(btn) {
-        btn.addEventListener('click', function() {
-          gameButtons.forEach(b => b.classList.remove('selected-button'));
-          btn.classList.add('selected-button');
-          var selectedGame = btn.getAttribute('data-game');
-          updateMapDropdown(selectedGame);
-          lazyLoadImage(cloakImage, mapImages[selectedGame][gameMaps[selectedGame][0]]);
-        });
-      });
-
-      function setDefaultGameAndMap() {
-        var defaultGame = 'CF';
-        var defaultGameButton = document.querySelector('.game-selection .game-btn[data-game="' + defaultGame + '"]');
-        if (defaultGameButton) {
-          defaultGameButton.click();
-        }
-      }
-
-      function lazyLoadImage(imgElement, imgUrl) {
-        imgElement.src = imgUrl;
-      }
-
-      setDefaultGameAndMap();
-    });
-
-    
-  </script> -->
-  
 </body>
-
 </html>
