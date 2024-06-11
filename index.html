@@ -72,6 +72,13 @@
       font-weight: bold;
       font-size: 26px;
     }
+    header.project-title h2 {
+      color: #838383; /* Grey color */
+      margin-bottom: 5px;
+      margin-top: 5px;
+      font-weight: bold;
+      font-size: 24px;
+    }
     .options-title {
       font-weight: bold;
       margin-top: 0px;
@@ -79,7 +86,7 @@
     }
     .description-text {
       margin-top: 20px;
-      background: #f8f9fa;
+      background: #ffffff;
       padding: 15px;
       border-radius: 8px;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -92,6 +99,7 @@
   <div class="container project_container mt-5">
     <header class="project-title text-center mb-4">
       <h1>Detect Like Pros: A Pathfinder of Next-Generation Anti-Cheat Framework for FPS Games</h1>
+      <h2>Offical Inspection Escapees Demo</h2>
     </header>
 
     <div class="options-container text-center">
@@ -133,32 +141,45 @@
       </div>
     </div>
 
+    <!-- Description text container -->
+    <div class="description-text text-center">
+      Aimbot escapee at blatant level with slow motion.
+    </div>
+
     <div class="video-container text-center">
       <iframe id="videoFrame" width="100%" height="500" src="https://youtube.com/embed/nK7smZnBzDg"
         title="Video Player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowfullscreen></iframe>
-    </div>
-
-    <!-- Description text container -->
-    <div class="description-text text-center">
-      Aimbot escapee at blatant level with slow motion.
     </div>
   </div>
 
   <!-- JavaScripts -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      // 绑定事件监听器到所有单选按钮
       document.querySelectorAll('input[type="radio"]').forEach(radio => {
         radio.addEventListener('change', updateVideoUrl);
       });
-
+    
       function updateVideoUrl() {
+        // 获取当前选中的值
         const dataset = document.querySelector('input[name="dataset"]:checked').value;
         const cheatLevel = document.querySelector('input[name="cheatLevel"]:checked').value;
         const speed = document.querySelector('input[name="speed"]:checked').value;
-
+    
         const urlMapping = {
-          // URL mappings omitted for brevity
+          'aimbot-blatant-0.25': 'https://www.youtube.com/embed/nK7smZnBzDg',
+          'aimbot-blatant-1.00': 'https://www.youtube.com/embed/Jid7paZCNk4',
+          'aimbot-disguised-0.25': 'https://www.youtube.com/embed/TBA',
+          'aimbot-disguised-1.00': 'https://www.youtube.com/embed/TBA2',
+          'aimbot-stealth-0.25': 'https://www.youtube.com/embed/L7TJ-wZMT8Y',
+          'aimbot-stealth-1.00': 'https://www.youtube.com/embed/-_7OzAvSoVE',
+          'wallhack-blatant-0.25': 'https://www.youtube.com/embed/n6K_OvJGx_M',
+          'wallhack-blatant-1.00': 'https://www.youtube.com/embed/G5vAcAH22Z4',
+          'wallhack-disguised-0.25': 'https://www.youtube.com/embed/Yh4eA7Hi-VQ',
+          'wallhack-disguised-1.00': 'https://www.youtube.com/embed/GxbEI8WDi9A',
+          'wallhack-stealth-0.25': 'https://www.youtube.com/embed/DtaPVettM2o',
+          'wallhack-stealth-1.00': 'https://www.youtube.com/embed/tT_suaUV5RI'
         };
 
         const descriptionMapping = {
@@ -175,57 +196,30 @@
           'wallhack-stealth-0.25': 'Aimbot escapee at stealth level with slow motion.',
           'wallhack-stealth-1.00': 'Aimbot escapee at stealth level with normal motion.'
         };
-
+    
+        // 构建键
         const key = `${dataset}-${cheatLevel}-${speed}`;
+        // 获取URL和描述
         const videoUrl = urlMapping[key] || 'https://www.youtube.com/embed/nK7smZnBzDg';
-        const description = description 
+        const description = descriptionMapping[key] || 'Select an option to see the description.';
+    
+        // 更新视频URL
         const videoPlayer = document.querySelector('#videoFrame');
         if (videoPlayer) {
           videoPlayer.src = videoUrl;
         }
-
+    
+        // 更新描述文本
         const descriptionContainer = document.querySelector('.description-text');
-        descriptionContainer.textContent = descriptionMapping[key] || 'Select an option to see the description.';
-      }
-    });
-  </script>
-  
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('input[type="radio"]').forEach(radio => {
-        radio.addEventListener('change', updateVideoUrl);
-      });
-
-      function updateVideoUrl() {
-        const dataset = document.querySelector('input[name="dataset"]:checked').value;
-        const cheatLevel = document.querySelector('input[name="cheatLevel"]:checked').value;
-        const speed = document.querySelector('input[name="speed"]:checked').value;
-
-        const urlMapping = {
-          'aimbot-blatant-0.25': 'https://www.youtube.com/embed/nK7smZnBzDg',
-          'aimbot-blatant-1.00': 'https://www.youtube.com/embed/Jid7paZCNk4',
-          'aimbot-disguised-0.25': 'https://www.youtube.com/embed/TBA',
-          'aimbot-disguised-1.00': 'https://www.youtube.com/embed/TBA2',
-          'aimbot-stealth-0.25': 'https://www.youtube.com/embed/L7TJ-wZMT8Y',
-          'aimbot-stealth-1.00': 'https://www.youtube.com/embed/-_7OzAvSoVE',
-          'wallhack-blatant-0.25': 'https://www.youtube.com/embed/n6K_OvJGx_M',
-          'wallhack-blatant-1.00': 'https://www.youtube.com/embed/G5vAcAH22Z4',
-          'wallhack-disguised-0.25': 'https://www.youtube.com/embed/Yh4eA7Hi-VQ',
-          'wallhack-disguised-1.00': 'https://www.youtube.com/embed/GxbEI8WDi9A',
-          'wallhack-stealth-0.25': 'https://www.youtube.com/embed/DtaPVettM2o',
-          'wallhack-stealth-1.00': 'https://www.youtube.com/embed/tT_suaUV5RI'
-        };
-
-        const key = `${dataset}-${cheatLevel}-${speed}`;
-        const videoUrl = urlMapping[key] || 'https://www.youtube.com/embed/nK7smZnBzDg';
-
-        const videoPlayer = document.querySelector('#videoFrame');
-        if (videoPlayer) {
-          videoPlayer.src = videoUrl;
+        if (descriptionContainer) {
+          descriptionContainer.textContent = description;
         }
+    
+        // 调试输出
+        console.log(`Updated to: ${key} - URL: ${videoUrl} - Description: ${description}`);
       }
     });
-  </script>
+    </script>
 
   <!-- jQuery -->
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"
