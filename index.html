@@ -119,7 +119,7 @@
       <div class="mb-3">
         <div class="options-title">
           Cheat Sophistication
-          <a href="#" class="icon-tooltip" data-toggle="tooltip" title="Select the level of cheating sophistication.">
+          <a href="#" class="icon-tooltip" data-toggle="tooltip" title="Select the level of cheating sophistication. The cheater might cheat cautiously (Disguised), pretending to be a normal player (Stealth), or cheating unabashedly (Blatant).">
             <i class="fas fa-question-circle"></i>
           </a>
         </div>
@@ -132,7 +132,7 @@
       <div>
         <div class="options-title">
           Playback Speed
-          <a href="#" class="icon-tooltip" data-toggle="tooltip" title="Adjust the video playback speed.">
+          <a href="#" class="icon-tooltip" data-toggle="tooltip" title="Adjust the video playback speed. x0.25 indicates 1/4 playback speed, which is 4 times slower than the nomal speed. You should always watch the demo at x1.00 speed first.">
             <i class="fas fa-question-circle"></i>
           </a>
         </div>
@@ -143,7 +143,7 @@
 
     <!-- Description text container -->
     <div class="description-text text-center">
-      Aimbot escapee at blatant level with slow motion.
+      Aimbot escapee at blatant level with slow motion. Sniper rifles generally require an open scope to hit accurately, and in this demo we can see that the cheater hits the enemy quickly and accurately and without opening the scope. Before the kill, the aimer quickly moves to the enemy's position, and after the shot is fired, the aimbot used artificially imitates the jerky movement of the mouse after a human presses the mouse. But as you can see, the jiggle is mechanical and unnatural.
     </div>
 
     <div class="video-container text-center">
@@ -160,7 +160,7 @@
       document.querySelectorAll('input[type="radio"]').forEach(radio => {
         radio.addEventListener('change', updateVideoUrl);
       });
-      
+
       function updateVideoUrl() {
         // 获取当前选中的值
         const dataset = document.querySelector('input[name="dataset"]:checked').value;
@@ -183,7 +183,7 @@
         };
 
         const descriptionMapping = {
-          'aimbot-blatant-0.25': 'Aimbot escapee at blatant level with slow motion.',
+          'aimbot-blatant-0.25': 'Aimbot escapee at blatant level with slow motion. Sniper rifles generally require an open scope to hit accurately, and in this demo we can see that the cheater hits the enemy quickly and accurately and without opening the scope. Before the kill, the aimer quickly moves to the enemy\'s position, and after the shot is fired, the aimbot used artificially imitates the jerky movement of the mouse after a human presses the mouse. But as you can see, the jiggle is mechanical and unnatural.',
           'aimbot-blatant-1.00': 'Aimbot escapee at blatant level with normal speed.',
           'aimbot-disguised-0.25': 'Aimbot escapee at disguised level with slow motion.',
           'aimbot-disguised-1.00': 'Aimbot escapee at disguised level with normal motion.',
