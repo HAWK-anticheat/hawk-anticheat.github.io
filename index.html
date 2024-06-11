@@ -41,199 +41,189 @@
     gtag('js', new Date());
     gtag('config', 'G-VHPFHC4JTP');
   </script>
+
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+    }
+    .options-container {
+      background: white;
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-top: 10px;
+    }
+    .options-container label {
+      font-weight: normal;
+      margin-right: 20px;
+    }
+    .options-container input[type="radio"] {
+      margin-right: 5px;
+    }
+    .video-container {
+      margin-top: 20px;
+    }
+    header.project-title h1 {
+      color: #3b3b3b; /* Grey color */
+      margin-bottom: 0px;
+      margin-top: 0px;
+      font-weight: bold;
+      font-size: 26px;
+    }
+    .options-title {
+      font-weight: bold;
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
+    .description-text {
+      margin-top: 20px;
+      background: #f8f9fa;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+  </style>
 </head>
 
 <!-- Body -->
 <body>
-  <!-- Content -->
   <div class="container project_container mt-5">
-    <div class="post">
-      <!---------------------------- HEADER ---------------------------->
-      <header class="project-title" style="text-align: center; margin-top: 30px;">
-        <h1 class="project-title" style="font-weight: bold; color: #404040; font-size: 36px;">
-          Detect Like Pros: A Pathfinder of Next-Generation Anti-Cheat Framework for FPS Games
-      </header>
+    <header class="project-title text-center mb-4">
+      <h1>Detect Like Pros: A Pathfinder of Next-Generation Anti-Cheat Framework for FPS Games</h1>
+    </header>
 
-      <!---------------------------- Video ---------------------------->
-      <!-- Tab Navigation -->
-      <div class="tab-container" style="margin-top: 40px;">
-        <div class="label" style="font-size: 18px;">Choose escapees from the datasets:</div>
-        <div class="tab-button active" data-target="aimbot" style="font-size: 14px;">Aimbot</div>
-        <div class="tab-button" data-target="wallhack" style="font-size: 14px;">Wallhack</div>
+    <div class="options-container text-center">
+      <!-- Dataset Selection -->
+      <div class="mb-3">
+        <div class="options-title" title="Choose the dataset origination of the escapees.">
+          Dataset
+          <a href="#" class="icon-tooltip" data-toggle="tooltip" title="Choose the dataset origination of the escapees.">
+            <i class="fas fa-question-circle"></i>
+          </a>
+        </div>
+        <label><input type="radio" name="dataset" value="aimbot" checked>Aimbot</label>
+        <label><input type="radio" name="dataset" value="wallhack">Wallhack</label>
       </div>
 
-      <!-- Aimbot Content -->
-      <div id="aimbot" class="content-container active">
-        <div class="h-100 d-flex align-items-center justify-content-center" style="margin-top: 50px">
-          <div class="project-narrow" id="architecture" style="text-align: justify;">
-            <h3 style="text-align: center; margin-bottom: 0; font-size: 18px; font-weight: 300; color: #404040;">
-              Aimbot assists with a player’s aiming and shooting, with which the cheaters possess an unnatural level of precision and efficiency.
-            </h3>
-          </div>
+      <!-- Cheat Level Selection -->
+      <div class="mb-3">
+        <div class="options-title">
+          Cheat Sophistication
+          <a href="#" class="icon-tooltip" data-toggle="tooltip" title="Select the level of cheating sophistication.">
+            <i class="fas fa-question-circle"></i>
+          </a>
         </div>
-
-        
-        
-
-        <div class="center-container">
-          <div class="card card-video" style="margin-top:20px">
-            <iframe id="videoFrame" width="100%" style="aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/CDxNQXvRhag"
-              title="Video Player" frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen></iframe>
-          </div>
-        </div>
-
-        <div class="center-container">
-          <div class="publications project-links" style="text-align: center; margin-bottom: 0px;">
-            <button class="btn video-btn" data-video-url="https://www.youtube.com/embed/CDxNQXvRhag" data-type="abblatant">Blatant Cheater</button>
-            <button class="btn video-btn" data-video-url="https://www.youtube.com/embed/6wJFPrGygXI" data-type="abdisguised">Disguised Cheater</button>
-            <button class="btn video-btn" data-video-url="https://www.youtube.com/embed/UT_aYP6kaSQ" data-type="abstealth">Stealth Cheater</button>
-          </div>
-          <div id="speed-controls" class="publications project-links" style="text-align: center; margin-top: 10px;">
-            <!-- Speed buttons will be added here -->
-            <button class="btn video-btn speed-btn" data-video-url="https://youtu.be/L7TJ-wZMT8Y" data-speed="0.25">x0.25</button>
-            <button class="btn video-btn speed-btn" data-video-url="https://youtu.be/-_7OzAvSoVE" data-speed="1.00">x1.00</button>
-          </div>
-        </div>
-
-
-        <div class="video-description" style="text-align: justify; margin-top: 30px;">
-          <p>
-            Descriptions TBD.
-          </p>
-        </div>
-
-
+        <label><input type="radio" name="cheatLevel" value="blatant" checked>Blatant</label>
+        <label><input type="radio" name="cheatLevel" value="disguised">Disguised</label>
+        <label><input type="radio" name="cheatLevel" value="stealth">Stealth</label>
       </div>
 
-      <!-- Wallhack Content -->
-      <div id="wallhack" class="content-container">
-        <div class="h-100 d-flex align-items-center justify-content-center" style="margin-top: 50px">
-          <div class="project-narrow" id="architecture" style="text-align: justify;">
-            <h3 style="text-align: center; margin-bottom: 0; font-size: 18px; font-weight: 300; color: #404040;">
-              Wallhack allows players to visually penetrate walls and other physical obstructions, letting them easily spot and track opponents across the map.
-            </h3>
-          </div>
+      <!-- Playback Speed Selection -->
+      <div>
+        <div class="options-title">
+          Playback Speed
+          <a href="#" class="icon-tooltip" data-toggle="tooltip" title="Adjust the video playback speed.">
+            <i class="fas fa-question-circle"></i>
+          </a>
         </div>
-
-        <div class="center-container">
-          <div class="card card-video" style="margin-top:20px">
-            <iframe id="videoFrame2" width="100%" style="aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/CDxNQXvRhag"
-              title="Video Player" frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen></iframe>
-          </div>
-        </div>
-
-        <div class="center-container">
-          <div class="publications project-links" style="text-align: center; margin-bottom: 0px;">
-            <button class="btn video-btn" data-video-url="https://www.youtube.com/embed/L7TJ-wZMT8Y" data-type="whblatant">Blatant Cheater</button>
-            <button class="btn video-btn" data-video-url="https://www.youtube.com/embed/6wJFPrGygXI" data-type="whdisguised">Disguised Cheater</button>
-            <button class="btn video-btn" data-video-url="https://www.youtube.com/embed/UT_aYP6kaSQ" data-type="whstealth">Stealth Cheater</button>
-          </div>
-          <div id="speed-controls" class="publications project-links" style="text-align: center; margin-top: 10px;">
-            <!-- Speed buttons will be added here -->
-            <button class="btn video-btn speed-btn" data-speed="0.25">x0.25</button>
-            <button class="btn video-btn speed-btn" data-speed="1.00">x1.00</button>
-          </div>
-        </div>
-        
-        <div class="video-description" style="text-align: justify; margin-top: 30px;">
-          <p>
-            Descriptions TBD.
-          </p>
-        </div>
+        <label><input type="radio" name="speed" value="0.25" checked>x0.25</label>
+        <label><input type="radio" name="speed" value="1.00">x1.00</label>
       </div>
+    </div>
+
+    <div class="video-container text-center">
+      <iframe id="videoFrame" width="100%" height="500" src="https://youtube.com/embed/nK7smZnBzDg"
+        title="Video Player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+    </div>
+
+    <!-- Description text container -->
+    <div class="description-text text-center">
+      Aimbot escapee at blatant level with slow motion.
     </div>
   </div>
 
   <!-- JavaScripts -->
-
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      // 点击video-btn时更新视频并处理按钮激活状态
-      document.querySelectorAll('.video-btn').forEach(button => {
-        button.addEventListener('click', event => {
-          // 更新视频源
-          const videoUrl = button.getAttribute('data-video-url');
-          const videoFrame = document.querySelector('.content-container.active .card-video iframe');
-          videoFrame.src = videoUrl;
-    
-          // 更新按钮激活状态
-          document.querySelectorAll('.video-btn').forEach(btn => btn.classList.remove('active'));
-          button.classList.add('active');
-    
-          // 显示对应的速度按钮
-          const type = button.getAttribute('data-type');
-          const urlMap = {
-            whblatant: {
-              "0.25": "https://www.youtube.com/embed/L7TJ-wZMT8Y",
-              "1.00": "https://www.youtube.com/embed/-_7OzAvSoVE"
-            },
-            whdisguised: {
-              "0.25": "https://youtu.be/TBA",
-              "1.00": "https://youtu.be/TBA2"
-            },
-            whstealth: {
-              "0.25": "https://youtu.be/TBA3",
-              "1.00": "https://youtu.be/TBA4"
-            },
-            abblatant: {
-              "0.25": "https://www.youtube.com/embed/L7TJ-wZMT8Y",
-              "1.00": "https://www.youtube.com/embed/6wJFPrGygXI"
-            },
-            abdisguised: {
-              "0.25": "https://youtu.be/TBA",
-              "1.00": "https://youtu.be/TBA2"
-            },
-            abstealth: {
-              "0.25": "https://youtu.be/TBA3",
-              "1.00": "https://youtu.be/TBA4"
-            }
-          };
-          const speedControlsContainer = document.querySelector('#speed-controls');
-          speedControlsContainer.innerHTML = ''; // 清除现有的按钮
-          Object.entries(urlMap[type]).forEach(([speed, url]) => {
-            const speedButton = document.createElement('button');
-            speedButton.className = 'btn video-btn speed-btn';
-            speedButton.textContent = `x${speed}`;
-            speedButton.dataset.videoUrl = url;
-            speedButton.onclick = () => {
-              videoFrame.src = url;
-              document.querySelectorAll('.speed-btn').forEach(btn => btn.classList.remove('active'));
-              speedButton.classList.add('active');
-            };
-            speedControlsContainer.appendChild(speedButton);
-          });
-        });
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('input[type="radio"]').forEach(radio => {
+        radio.addEventListener('change', updateVideoUrl);
       });
+
+      function updateVideoUrl() {
+        const dataset = document.querySelector('input[name="dataset"]:checked').value;
+        const cheatLevel = document.querySelector('input[name="cheatLevel"]:checked').value;
+        const speed = document.querySelector('input[name="speed"]:checked').value;
+
+        const urlMapping = {
+          // URL mappings omitted for brevity
+        };
+
+        const descriptionMapping = {
+          'aimbot-blatant-0.25': 'Aimbot escapee at blatant level with slow motion.',
+          'aimbot-blatant-1.00': 'Aimbot escapee at blatant level with normal speed.',
+          'aimbot-disguised-0.25': 'Aimbot escapee at disguised level with slow motion.',
+          'aimbot-disguised-1.00': 'Aimbot escapee at disguised level with normal motion.',
+          'aimbot-stealth-0.25': 'Aimbot escapee at stealth level with slow motion.',
+          'aimbot-stealth-1.00': 'Aimbot escapee at stealth level with normal motion.',
+          'wallhack-blatant-0.25': 'Aimbot escapee at blatant level with slow motion.',
+          'wallhack-blatant-1.00': 'Aimbot escapee at blatant level with normal motion.',
+          'wallhack-disguised-0.25': 'Aimbot escapee at disguised level with slow motion.',
+          'wallhack-disguised-1.00': 'Aimbot escapee at disguised level with normal motion.',
+          'wallhack-stealth-0.25': 'Aimbot escapee at stealth level with slow motion.',
+          'wallhack-stealth-1.00': 'Aimbot escapee at stealth level with normal motion.'
+        };
+
+        const key = `${dataset}-${cheatLevel}-${speed}`;
+        const videoUrl = urlMapping[key] || 'https://www.youtube.com/embed/nK7smZnBzDg';
+        const description = description 
+        const videoPlayer = document.querySelector('#videoFrame');
+        if (videoPlayer) {
+          videoPlayer.src = videoUrl;
+        }
+
+        const descriptionContainer = document.querySelector('.description-text');
+        descriptionContainer.textContent = descriptionMapping[key] || 'Select an option to see the description.';
+      }
     });
-    
   </script>
-
+  
   <script>
-    document.querySelectorAll('.tab-button').forEach(button => {
-      button.addEventListener('click', () => {
-        document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-
-        const target = button.getAttribute('data-target');
-        document.querySelectorAll('.content-container').forEach(container => {
-          container.classList.remove('active');
-          if (container.id === target) {
-            container.classList.add('active');
-          }
-        });
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('input[type="radio"]').forEach(radio => {
+        radio.addEventListener('change', updateVideoUrl);
       });
-    });
 
-    document.querySelectorAll('.video-btn').forEach(button => {
-      button.addEventListener('click', () => {
-        const videoUrl = button.getAttribute('data-video-url');
-        const videoFrame = document.querySelector('.content-container.active .card-video iframe');
-        videoFrame.src = videoUrl;
-      });
+      function updateVideoUrl() {
+        const dataset = document.querySelector('input[name="dataset"]:checked').value;
+        const cheatLevel = document.querySelector('input[name="cheatLevel"]:checked').value;
+        const speed = document.querySelector('input[name="speed"]:checked').value;
+
+        const urlMapping = {
+          'aimbot-blatant-0.25': 'https://www.youtube.com/embed/nK7smZnBzDg',
+          'aimbot-blatant-1.00': 'https://www.youtube.com/embed/Jid7paZCNk4',
+          'aimbot-disguised-0.25': 'https://www.youtube.com/embed/TBA',
+          'aimbot-disguised-1.00': 'https://www.youtube.com/embed/TBA2',
+          'aimbot-stealth-0.25': 'https://www.youtube.com/embed/L7TJ-wZMT8Y',
+          'aimbot-stealth-1.00': 'https://www.youtube.com/embed/-_7OzAvSoVE',
+          'wallhack-blatant-0.25': 'https://www.youtube.com/embed/n6K_OvJGx_M',
+          'wallhack-blatant-1.00': 'https://www.youtube.com/embed/G5vAcAH22Z4',
+          'wallhack-disguised-0.25': 'https://www.youtube.com/embed/Yh4eA7Hi-VQ',
+          'wallhack-disguised-1.00': 'https://www.youtube.com/embed/GxbEI8WDi9A',
+          'wallhack-stealth-0.25': 'https://www.youtube.com/embed/DtaPVettM2o',
+          'wallhack-stealth-1.00': 'https://www.youtube.com/embed/tT_suaUV5RI'
+        };
+
+        const key = `${dataset}-${cheatLevel}-${speed}`;
+        const videoUrl = urlMapping[key] || 'https://www.youtube.com/embed/nK7smZnBzDg';
+
+        const videoPlayer = document.querySelector('#videoFrame');
+        if (videoPlayer) {
+          videoPlayer.src = videoUrl;
+        }
+      }
     });
   </script>
 
@@ -250,6 +240,15 @@
   <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js"
     integrity="sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA=" crossorigin="anonymous"></script>
 
+  <!-- Bootstrap & jQuery libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('[data-toggle="tooltip"]').tooltip(); // Activate all tooltips
+    });
+  </script>
+
   <!-- Mansory & imagesLoaded -->
   <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"
     integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script>
@@ -261,53 +260,5 @@
     integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
   <script src="./assets/js/zoom.js"></script><!-- Load Common JS -->
   <script src="./assets/js/common.js"></script>
-
-  <!-- MathJax -->
-  <script type="text/javascript">
-    window.MathJax = {
-      tex: {
-        tags: 'ams'
-      }
-    };
-  </script>
-  <script defer type="text/javascript" id="MathJax-script"
-    src="https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js"></script>
-  <script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-
-  <script>
-    $(function () {
-      $(".dropdown-menu a").click(function () {
-        var selText = $(this).text();
-        $(this).parent().parent().find(".selection").html(selText);
-      });
-    });
-
-    document.addEventListener("DOMContentLoaded", function () {
-      var lazyloadThrottleTimeout;
-
-      var elements = document.getElementsByClassName('dropdown-item');
-
-      function lazyload(event) {
-        if (lazyloadThrottleTimeout) {
-          clearTimeout(lazyloadThrottleTimeout);
-        }
-        img_id = this.text
-        img2 = $("#" + img_id).children("img")
-        console.log(img2)
-        for (var i = 0; i < img2.length; i++) {
-          img = img2.get(i)
-          if ($(img).hasClass('lazy')) {
-            img.src = img.dataset.src;
-            img.classList.remove('lazy');
-            lazyloadThrottleTimeout = setTimeout(function () { }, 20);
-          }
-        }
-      }
-
-      Array.from(elements).forEach((element) => {
-        element.addEventListener('click', lazyload);
-      });
-    });
-  </script>
 </body>
 </html>
