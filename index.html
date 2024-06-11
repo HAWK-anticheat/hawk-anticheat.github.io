@@ -86,9 +86,14 @@
 
         <div class="center-container">
           <div class="publications project-links" style="text-align: center; margin-bottom: 0px;">
-            <button class="btn video-btn" data-video-url="https://www.youtube.com/embed/CDxNQXvRhag">Blatant Cheater</button>
-            <button class="btn video-btn" data-video-url="https://www.youtube.com/embed/6wJFPrGygXI">Disguised Cheater</button>
-            <button class="btn video-btn" data-video-url="https://www.youtube.com/embed/UT_aYP6kaSQ">Stealth Cheater</button>
+            <button class="btn video-btn" data-video-url="https://www.youtube.com/embed/CDxNQXvRhag" data-type="abblatant">Blatant Cheater</button>
+            <button class="btn video-btn" data-video-url="https://www.youtube.com/embed/6wJFPrGygXI" data-type="abdisguised">Disguised Cheater</button>
+            <button class="btn video-btn" data-video-url="https://www.youtube.com/embed/UT_aYP6kaSQ" data-type="abstealth">Stealth Cheater</button>
+          </div>
+          <div id="speed-controls" class="publications project-links" style="text-align: center; margin-top: 10px;">
+            <!-- Speed buttons will be added here -->
+            <button class="btn video-btn speed-btn" data-video-url="https://youtu.be/L7TJ-wZMT8Y" data-speed="0.25">x0.25</button>
+            <button class="btn video-btn speed-btn" data-video-url="https://youtu.be/-_7OzAvSoVE" data-speed="1.00">x1.00</button>
           </div>
         </div>
 
@@ -123,9 +128,14 @@
 
         <div class="center-container">
           <div class="publications project-links" style="text-align: center; margin-bottom: 0px;">
-            <button class="btn video-btn" data-video-url="https://www.youtube.com/embed/CDxNQXvRhag">Blatant Cheater</button>
-            <button class="btn video-btn" data-video-url="https://www.youtube.com/embed/6wJFPrGygXI">Disguised Cheater</button>
-            <button class="btn video-btn" data-video-url="https://www.youtube.com/embed/UT_aYP6kaSQ">Stealth Cheater</button>
+            <button class="btn video-btn" data-video-url="https://www.youtube.com/embed/L7TJ-wZMT8Y" data-type="whblatant">Blatant Cheater</button>
+            <button class="btn video-btn" data-video-url="https://www.youtube.com/embed/6wJFPrGygXI" data-type="whdisguised">Disguised Cheater</button>
+            <button class="btn video-btn" data-video-url="https://www.youtube.com/embed/UT_aYP6kaSQ" data-type="whstealth">Stealth Cheater</button>
+          </div>
+          <div id="speed-controls" class="publications project-links" style="text-align: center; margin-top: 10px;">
+            <!-- Speed buttons will be added here -->
+            <button class="btn video-btn speed-btn" data-speed="0.25">x0.25</button>
+            <button class="btn video-btn speed-btn" data-speed="1.00">x1.00</button>
           </div>
         </div>
         
@@ -139,6 +149,69 @@
   </div>
 
   <!-- JavaScripts -->
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // 点击video-btn时更新视频并处理按钮激活状态
+      document.querySelectorAll('.video-btn').forEach(button => {
+        button.addEventListener('click', event => {
+          // 更新视频源
+          const videoUrl = button.getAttribute('data-video-url');
+          const videoFrame = document.querySelector('.content-container.active .card-video iframe');
+          videoFrame.src = videoUrl;
+    
+          // 更新按钮激活状态
+          document.querySelectorAll('.video-btn').forEach(btn => btn.classList.remove('active'));
+          button.classList.add('active');
+    
+          // 显示对应的速度按钮
+          const type = button.getAttribute('data-type');
+          const urlMap = {
+            whblatant: {
+              "0.25": "https://www.youtube.com/embed/L7TJ-wZMT8Y",
+              "1.00": "https://www.youtube.com/embed/-_7OzAvSoVE"
+            },
+            whdisguised: {
+              "0.25": "https://youtu.be/TBA",
+              "1.00": "https://youtu.be/TBA2"
+            },
+            whstealth: {
+              "0.25": "https://youtu.be/TBA3",
+              "1.00": "https://youtu.be/TBA4"
+            },
+            abblatant: {
+              "0.25": "https://www.youtube.com/embed/L7TJ-wZMT8Y",
+              "1.00": "https://www.youtube.com/embed/6wJFPrGygXI"
+            },
+            abdisguised: {
+              "0.25": "https://youtu.be/TBA",
+              "1.00": "https://youtu.be/TBA2"
+            },
+            abstealth: {
+              "0.25": "https://youtu.be/TBA3",
+              "1.00": "https://youtu.be/TBA4"
+            }
+          };
+          const speedControlsContainer = document.querySelector('#speed-controls');
+          speedControlsContainer.innerHTML = ''; // 清除现有的按钮
+          Object.entries(urlMap[type]).forEach(([speed, url]) => {
+            const speedButton = document.createElement('button');
+            speedButton.className = 'btn video-btn speed-btn';
+            speedButton.textContent = `x${speed}`;
+            speedButton.dataset.videoUrl = url;
+            speedButton.onclick = () => {
+              videoFrame.src = url;
+              document.querySelectorAll('.speed-btn').forEach(btn => btn.classList.remove('active'));
+              speedButton.classList.add('active');
+            };
+            speedControlsContainer.appendChild(speedButton);
+          });
+        });
+      });
+    });
+    
+  </script>
+
   <script>
     document.querySelectorAll('.tab-button').forEach(button => {
       button.addEventListener('click', () => {

@@ -916,6 +916,22 @@ d-appendix a.footnote-backlink:hover {
     background-color: #5b0e09;
 }
 
+.btn.video-btn-speed {
+    margin: 5px 25px;
+    padding: 5px 20px;
+    background-color: #3dbc89;
+    color: rgb(253, 253, 253);
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 200px;
+    text-align: center;
+}
+
+.btn.video-btn-speed:hover {
+    background-color: #215943;
+}
+
 .selected-button {
     background-color: #2698BA;
     color: #fff;
@@ -966,6 +982,17 @@ d-appendix a.footnote-backlink:hover {
 .tab-button:hover {
     background-color: #3854c4;
 }
+
+.speed-btn {
+    margin-top: 10px;
+    margin-left: 5px;
+    font-size: 14px;  /* 保持与其他按钮一致 */
+} 
+
+.btn.active {
+    background-color: #007BFF; /* Bootstrap primary color */
+    color: white;
+  }  
   
 .content-container {
     display: none;
