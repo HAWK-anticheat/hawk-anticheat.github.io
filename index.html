@@ -146,17 +146,10 @@
       Aimbot escapee at blatant level with slow motion. Sniper rifles generally require an open scope to hit accurately, and in this demo we can see that the cheater hits the enemy quickly and accurately and without opening the scope. Before the kill, the aimer quickly moves to the enemy's position, and after the shot is fired, the aimbot used artificially imitates the jerky movement of the mouse after a human presses the mouse. But as you can see, even in slow motion, the jiggle is still done within a frame, making it look ripped and unnatural.
     </div>
 
-    <!-- <div class="video-container text-center">
-      <iframe id="videoFrame" width="100%" height="500" src="https://youtube.com/embed/nK7smZnBzDg"
-        title="Video Player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen></iframe>
-    </div>
-  </div> -->
-
   <div class="video-container text-center">
     <video id="videoFrame" width="100%" height="700" controls>
-      <source src="./assets/vid/aimbot_2_25.mkv">
-      Your browser does not support the video tag.
+      <source src="./assets/vid/aimbot_3_25.mp4">
+      Your browser does not support the video tag. Please use Chrome or Safari.
     </video>
   </div>  
 
@@ -175,18 +168,18 @@
         const speed = document.querySelector('input[name="speed"]:checked').value;
     
         const urlMapping = {
-          'aimbot-blatant-0.25': 'https://www.youtube.com/embed/nK7smZnBzDg',
-          'aimbot-blatant-1.00': 'https://www.youtube.com/embed/Jid7paZCNk4',
-          'aimbot-disguised-0.25': 'https://www.youtube.com/embed/11ir6pBi5gs',
-          'aimbot-disguised-1.00': 'https://www.youtube.com/embed/ynuJOOzeYYQ',
-          'aimbot-stealth-0.25': 'https://www.youtube.com/embed/L7TJ-wZMT8Y',
-          'aimbot-stealth-1.00': 'https://www.youtube.com/embed/-_7OzAvSoVE',
-          'wallhack-blatant-0.25': 'https://www.youtube.com/embed/n6K_OvJGx_M',
-          'wallhack-blatant-1.00': 'https://www.youtube.com/embed/G5vAcAH22Z4',
-          'wallhack-disguised-0.25': 'https://www.youtube.com/embed/Yh4eA7Hi-VQ',
-          'wallhack-disguised-1.00': 'https://www.youtube.com/embed/GxbEI8WDi9A',
-          'wallhack-stealth-0.25': 'https://www.youtube.com/embed/DtaPVettM2o',
-          'wallhack-stealth-1.00': 'https://www.youtube.com/embed/tT_suaUV5RI'
+          'aimbot-blatant-0.25': './assets/vid/aimbot_3_25.mp4',
+          'aimbot-blatant-1.00': './assets/vid/aimbot_3_100.mp4',
+          'aimbot-disguised-0.25': './assets/vid/aimbot_2_25.mp4',
+          'aimbot-disguised-1.00': './assets/vid/aimbot_2_100.mp4',
+          'aimbot-stealth-0.25': './assets/vid/aimbot_1_25.mp4',
+          'aimbot-stealth-1.00': './assets/vid/aimbot_1_100.mp4',
+          'wallhack-blatant-0.25': 'assets/vid/wallhack_2_25.mp4',
+          'wallhack-blatant-1.00': 'assets/vid/wallhack_2_100.mp4',
+          'wallhack-disguised-0.25': 'assets/vid/wallhack_1_25.mp4',
+          'wallhack-disguised-1.00': 'assets/vid/wallhack_1_100.mp4',
+          'wallhack-stealth-0.25': 'assets/vid/wallhack_3_25.mp4',
+          'wallhack-stealth-1.00': 'assets/vid/wallhack_3_100.mp4'
         };
 
         const descriptionMapping = {
@@ -207,7 +200,7 @@
         // 构建键
         const key = `${dataset}-${cheatLevel}-${speed}`;
         // 获取URL和描述
-        const videoUrl = urlMapping[key] || 'https://www.youtube.com/embed/nK7smZnBzDg';
+        const videoUrl = urlMapping[key] || './assets/vid/aimbot_3_25.mp4';
         const description = descriptionMapping[key] || 'Select an option to see the description.';
     
         // 更新视频URL
