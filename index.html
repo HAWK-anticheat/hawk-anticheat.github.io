@@ -100,46 +100,55 @@
     }
   </style>
   <style>
+    .features-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 10px;
+      margin-bottom: 0px;
+    }
     .data-container {
       display: flex;
       flex-wrap: wrap;
       padding: 20px;
-      background: #f4f4f9; /* 灰色背景 */
-      gap: 10px; /* 项目之间的间隙 */
+      background: #ffffff;
+      gap: 10px; 
+      font-weight: bold;
     }
   
     .data-item {
-      flex: 1 1 200px; /* 确保每个项目至少200px宽，灵活填充 */
-      background: white; /* 白色背景 */
-      border: 1px solid #ccc; /* 边框 */
-      border-radius: 8px; /* 圆角 */
+      flex: 1 1 200px; 
+      background: white; 
+      border: 1px solid #ccc; 
+      border-radius: 8px; 
       padding: 10px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* 阴影效果 */
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
       display: flex;
-      justify-content: space-between; /* 标签和值之间的空间 */
-      align-items: center; /* 垂直居中 */
+      justify-content: space-between; 
+      align-items: center; 
+      font-weight: bold;
     }
   
     .data-label {
-      font-weight: bold; /* 加粗标签 */
+      font-weight: bold; 
     }
   
     .data-value {
-      color: #333; /* 深灰色文本 */
+      color: #333; 
+      font-weight: bold;
     }
   </style> 
   <style>
     .negative-indicator {
-      color: red;
+      color: rgb(212, 82, 82);
       margin-right: 5px;
     }
     .positive-indicator {
-      color: green;
+      color: rgb(104, 212, 122);
       margin-right: 5px;
     }
     .tooltip-icon {
       margin-left: 5px;
-      color: #333; /* Adjust color to fit your design */
+      color: #333; 
       cursor: help;
     }
     .data-item {
@@ -168,9 +177,7 @@
       <div class="mb-3">
         <div class="options-title" title="Choose the dataset origination of the escapees.">
           Dataset
-          <a href="#" class="icon-tooltip" data-toggle="tooltip" title="Choose the dataset origination of the escapees.">
-            <i class="fas fa-question-circle"></i>
-          </a>
+          <span><i class="fas fa-question-circle tooltip-icon" data-toggle="tooltip" title="Choose the dataset origination of the escapees."></i></span>
         </div>
         <label><input type="radio" name="dataset" value="aimbot" checked>Aimbot</label>
         <label><input type="radio" name="dataset" value="wallhack">Wallhack</label>
@@ -180,9 +187,7 @@
       <div class="mb-3">
         <div class="options-title">
           Cheat Sophistication
-          <a href="#" class="icon-tooltip" data-toggle="tooltip" title="Select the level of cheating sophistication. The cheater might cheat cautiously (Disguised), pretending to be a normal player (Stealth), or cheating unabashedly (Blatant).">
-            <i class="fas fa-question-circle"></i>
-          </a>
+          <span><i class="fas fa-question-circle tooltip-icon" data-toggle="tooltip" title="Select the level of cheating sophistication. The cheater might cheat cautiously (Disguised), pretending to be a normal player (Stealth), or cheating unabashedly (Blatant)."></i></span>
         </div>
         <label><input type="radio" name="cheatLevel" value="blatant" checked>Blatant</label>
         <label><input type="radio" name="cheatLevel" value="disguised">Disguised</label>
@@ -193,9 +198,7 @@
       <div>
         <div class="options-title">
           Playback Speed
-          <a href="#" class="icon-tooltip" data-toggle="tooltip" title="Adjust the video playback speed. 0.25x indicates 1/4 playback speed, which is 4 times slower than the nomal speed. You should always watch the demo at 1.00x speed first.">
-            <i class="fas fa-question-circle"></i>
-          </a>
+          <span><i class="fas fa-question-circle tooltip-icon" data-toggle="tooltip" title="Adjust the video playback speed. 0.25x indicates 1/4 playback speed, which is 4 times slower than the nomal speed. You should always watch the demo at 1.00x speed first."></i></span>
         </div>
         <label><input type="radio" name="speed" value="0.25" checked>0.25x</label>
         <label><input type="radio" name="speed" value="1.00">1.00x</label>
@@ -214,17 +217,23 @@
     </video>
   </div>  
 
-  <div class="note-text text-left">
-    Note:
+  <div class="note-text text-center">
+    <div class="options-title text-center">
+      Note
+      <p> </p>
+    </div>
     <p>1. HUDs (in-game UI overlays, e.g., health bar, navigation map, avatar's ID, kill info, etc.) that may disclose any information are hidden to fulfill anonymous submission requirements;</p>
     2. X-Ray (highlighted character borders can be seen through obstacles) is activated for better illustration purpose. In real-world matches, the normal players will not obtain this function.
   </div>
-
-  <div class="data-container text-center mt-4">
-    <h4 class="mb-4">Selected Features Explanation</h4>
-    <!-- Dynamic data items will be added here -->
+  <div class="note-text">
+    <div class="options-title text-center">
+      Selected Features
+      <span><i class="fas fa-question-circle tooltip-icon" data-html="true" data-toggle="tooltip" title="We chose representive features to further illustrate the differences between cheaters and normal players at the data level. The percentage represents the average growth rate among one match, i.e., P%=((value[cheater] - avg[normal])/avg[normal])*100%. <i class='negative-indicator'>▼</i> represents the decrease compared to the feature's avarage value in the match; <i class='positive-indicator'>▲</i> indicates the increase compared to the feature's avarage value in the match."></i></span>
+    </div>
+    <div class="data-container text-center mt-4">
+      <!-- Dynamic data items will be added here -->
+    </div>
   </div>
-  
 
   <!-- JavaScripts -->
   <script>
@@ -269,7 +278,7 @@
         };
     
         const key = `${dataset}-${cheatLevel}-${speed}`;
-        const videoUrl = urlMapping[key] || './assets/vid/aimbot_3_25.mp4';
+        const videoUrl = urlMapping[key] || 'Select an option.';
         const description = descriptionMapping[key] || 'Select an option to see the description.';
     
         const videoPlayer = document.querySelector('#videoFrame');
@@ -292,201 +301,220 @@
     </script>
     <script>
       document.addEventListener('DOMContentLoaded', () => {
-        // 定义数据
+        
         const dataMapping = {
           "aimbot-blatant": {
-            "avg_TTK": "-30.70%",
-            "var_TTK": "-47.62%",
-            "avg_delta": "76.95%",
-            "var_delta": "66.56%",
-            "avg_gamma": "-74.71%",
-            "var_gamma": "-82.67%",
-            "avg_t0_t1_duration": "-13.12%",
-            "var_t0_t1_duration": "-15.16%",
-            "avg_t1_t2_duration": "-43.87%",
-            "var_t1_t2_duration": "-44.08%",
-            "avg_duration": "-28.68%",
-            "var_duration": "-35.75%",
-            "avg_speed": "43.27%",
-            "var_speed": "158.05%",
-            "CHPrecision": "110.91%",
-            "precision": "80.35%",
-            "avgKill": "291.30%",
-            "ratio of hit when moving": "-100.00%",
-            "flashEfficiency": "256.44%",
-            "occluderKill": "471.43%",
-            "oneTapPercentage": "-12.23%",
-            "special_hit_ratio": "-2.59%",
-            "inertialShotPercentage": "5.67%",
-            "BlindKillPercentage": "#DIV/0!",
-            "firstKillRate": "163.16%",
-            "propsStats": "162.14%",
-            "Var_hit_group": "0.38%",
-            "firstHitPrecision": "19.01%"
+            "ttk-avg": "-30.70%",
+            "ttk-var": "-47.62%",
+            "raa-avg": "76.95%",
+            "raa-var": "66.56%",
+            "aja-avg": "-74.71%",
+            "aja-var": "-82.67%",
+            "rat-avg": "-13.12%",
+            "rat-var": "-15.16%",
+            "ajt-avg": "-43.87%",
+            "ajt-var": "-44.08%",
+            "drt-avg": "-28.68%",
+            "drt-var": "-35.75%",
+            "v-avg": "43.27%",
+            "v-var": "158.05%",
+            "chp": "110.91%",
+            "precis": "80.35%",
+            "akpr": "291.30%",
+            "shp": "-100.00%",
+            "fei": "256.44%",
+            "opi": "471.43%",
+            "otp": "-12.23%",
+            "shr": "-2.59%",
+            "isp": "5.67%",
+            "bkp": "#DIV/0!",
+            "fbp": "163.16%",
+            "pui": "162.14%",
+            "hgd": "0.38%",
+            "fhp": "19.01%"
           },
           "aimbot-disguised": {
-            "avg_TTK": "-50.27%",
-            "var_TTK": "-19.71%",
-            "avg_delta": "-6.99%",
-            "var_delta": "-7.87%",
-            "avg_gamma": "-92.44%",
-            "var_gamma": "-99.74%",
-            "avg_t0_t1_duration": "-8.66%",
-            "var_t0_t1_duration": "49.72%",
-            "avg_t1_t2_duration": "-59.49%",
-            "var_t1_t2_duration": "-69.95%",
-            "avg_duration": "-35.60%",
-            "var_duration": "-75.78%",
-            "avg_speed": "-42.80%",
-            "var_speed": "23.39%",
-            "CHPrecision": "113.19%",
-            "precision": "77.96%",
-            "avgKill": "201.89%",
-            "ratio of hit when moving": "-100.00%",
-            "flashEfficiency": "357.77%",
-            "occluderKill": "-100.00%",
-            "oneTapPercentage": "326.75%",
-            "special_hit_ratio": "25.53%",
-            "inertialShotPercentage": "8.91%",
-            "BlindKillPercentage": "#DIV/0!",
-            "firstKillRate": "471.43%",
-            "propsStats": "-59.46%",
-            "Var_hit_group": "43.06%",
-            "firstHitPrecision": "109.14%"
+            "ttk-avg": "-50.27%",
+            "ttk-var": "-19.71%",
+            "raa-avg": "-6.99%",
+            "raa-var": "-7.87%",
+            "aja-avg": "-92.44%",
+            "aja-var": "-99.74%",
+            "rat-avg": "-8.66%",
+            "rat-var": "49.72%",
+            "ajt-avg": "-59.49%",
+            "ajt-var": "-69.95%",
+            "drt-avg": "-35.60%",
+            "drt-var": "-75.78%",
+            "v-avg": "-42.80%",
+            "v-var": "23.39%",
+            "chp": "113.19%",
+            "precis": "77.96%",
+            "akpr": "201.89%",
+            "shp": "-100.00%",
+            "fei": "357.77%",
+            "opi": "-100.00%",
+            "otp": "326.75%",
+            "shr": "25.53%",
+            "isp": "8.91%",
+            "bkp": "#DIV/0!",
+            "fbp": "471.43%",
+            "pui": "-59.46%",
+            "hgd": "43.06%",
+            "fhp": "109.14%"
           },
           "aimbot-stealth": {
-            "avg_TTK": "-10.92%",
-            "var_TTK": "-15.68%",
-            "avg_delta": "-51.56%",
-            "var_delta": "-46.64%",
-            "avg_gamma": "-37.76%",
-            "var_gamma": "-60.87%",
-            "avg_t0_t1_duration": "-33.18%",
-            "var_t0_t1_duration": "45.90%",
-            "avg_t1_t2_duration": "-0.36%",
-            "var_t1_t2_duration": "-25.77%",
-            "avg_duration": "-15.60%",
-            "var_duration": "-23.38%",
-            "avg_speed": "-15.01%",
-            "var_speed": "-6.54%",
-            "CHPrecision": "57.68%",
-            "precision": "3.01%",
-            "avgKill": "157.14%",
-            "ratio of hit when moving": "205.25%",
-            "flashEfficiency": "-75.67%",
-            "occluderKill": "400.00%",
-            "oneTapPercentage": "-14.60%",
-            "special_hit_ratio": "71.49%",
-            "inertialShotPercentage": "2.37%",
-            "BlindKillPercentage": "31.27%",
-            "firstKillRate": "90.48%",
-            "propsStats": "58.42%",
-            "Var_hit_group": "-39.44%",
-            "firstHitPrecision": "17.35%"
+            "ttk-avg": "-10.92%",
+            "ttk-var": "-15.68%",
+            "raa-avg": "-51.56%",
+            "raa-var": "-46.64%",
+            "aja-avg": "-37.76%",
+            "aja-var": "-60.87%",
+            "rat-avg": "-33.18%",
+            "rat-var": "45.90%",
+            "ajt-avg": "-0.36%",
+            "ajt-var": "-25.77%",
+            "drt-avg": "-15.60%",
+            "drt-var": "-23.38%",
+            "v-avg": "-15.01%",
+            "v-var": "-6.54%",
+            "chp": "57.68%",
+            "precis": "3.01%",
+            "akpr": "157.14%",
+            "shp": "205.25%",
+            "fei": "-75.67%",
+            "opi": "400.00%",
+            "otp": "-14.60%",
+            "shr": "71.49%",
+            "isp": "2.37%",
+            "bkp": "31.27%",
+            "fbp": "90.48%",
+            "pui": "58.42%",
+            "hgd": "-39.44%",
+            "fhp": "17.35%"
           },
           "wallhack-blatant": {
-            "avgKill": "307.55%",
-            "special_hit_ratio": "80.35%",
-            "oneTapPercentage": "318.48%",
-            "precision": "93.68%",
-            "ratio of hit when moving": "-100.00%",
-            "flashEfficiency": "-6.84%",
-            "avg_TTK": "13.75%",
-            "var_TTK": "105.86%",
-            "occluderKill": "540.00%",
-            "firstHitPrecision": "125.73%",
-            "inertialShotPercentage": "5.99%",
-            "Var_hit_group": "174.77%",
-            "propsStats": "201.64%",
-            "BlindKillPercentage": "#DIV/0!",
-            "CHPrecision": "284.89%",
-            "firstKillRate": "605.88%",
-            "avg_delta": "2.11%",
-            "var_delta": "54.08%",
-            "avg_gamma": "-45.62%",
-            "var_gamma": "-41.59%",
-            "avg_t0_t1_duration": "-27.21%",
-            "var_t0_t1_duration": "19.66%",
-            "avg_t1_t2_duration": "-12.13%",
-            "var_t1_t2_duration": "4.61%",
-            "avg_duration": "-18.70%",
-            "var_duration": "0.23%",
-            "avg_speed": "118.64%",
-            "var_speed": "366.95%"
+            "akpr": "307.55%",
+            "shr": "80.35%",
+            "otp": "318.48%",
+            "precis": "93.68%",
+            "shp": "-100.00%",
+            "fei": "-6.84%",
+            "ttk-avg": "13.75%",
+            "ttk-var": "105.86%",
+            "opi": "540.00%",
+            "fhp": "125.73%",
+            "isp": "5.99%",
+            "hgd": "174.77%",
+            "pui": "201.64%",
+            "bkp": "#DIV/0!",
+            "chp": "284.89%",
+            "fbp": "605.88%",
+            "raa-avg": "2.11%",
+            "raa-var": "54.08%",
+            "aja-avg": "-45.62%",
+            "aja-var": "-41.59%",
+            "rat-avg": "-27.21%",
+            "rat-var": "19.66%",
+            "ajt-avg": "-12.13%",
+            "ajt-var": "4.61%",
+            "drt-avg": "-18.70%",
+            "drt-var": "0.23%",
+            "v-avg": "118.64%",
+            "v-var": "366.95%"
           },
           "wallhack-disguised": {
-            "avgKill": "216.22%",
-            "special_hit_ratio": "-49.90%",
-            "oneTapPercentage": "110.08%",
-            "precision": "123.74%",
-            "ratio of hit when moving": "-11.48%",
-            "flashEfficiency": "29.49%",
-            "avg_TTK": "-19.09%",
-            "var_TTK": "-33.08%",
-            "occluderKill": "350.00%",
-            "firstHitPrecision": "109.13%",
-            "inertialShotPercentage": "19.81%",
-            "Var_hit_group": "-39.85%",
-            "propsStats": "125.00%",
-            "BlindKillPercentage": "#DIV/0!",
-            "CHPrecision": "27.49%",
-            "firstKillRate": "270.59%",
-            "avg_delta": "-15.04%",
-            "var_delta": "-9.63%",
-            "avg_gamma": "-59.87%",
-            "var_gamma": "-22.06%",
-            "avg_t0_t1_duration": "-0.78%",
-            "var_t0_t1_duration": "-7.01%",
-            "avg_t1_t2_duration": "-43.95%",
-            "var_t1_t2_duration": "-2.82%",
-            "avg_duration": "-23.53%",
-            "var_duration": "0.11%",
-            "avg_speed": "-58.76%",
-            "var_speed": "-76.28%"
+            "akpr": "216.22%",
+            "shr": "-49.90%",
+            "otp": "110.08%",
+            "precis": "123.74%",
+            "shp": "-11.48%",
+            "fei": "29.49%",
+            "ttk-avg": "-19.09%",
+            "ttk-var": "-33.08%",
+            "opi": "350.00%",
+            "fhp": "109.13%",
+            "isp": "19.81%",
+            "hgd": "-39.85%",
+            "pui": "125.00%",
+            "bkp": "#DIV/0!",
+            "chp": "27.49%",
+            "fbp": "270.59%",
+            "raa-avg": "-15.04%",
+            "raa-var": "-9.63%",
+            "aja-avg": "-59.87%",
+            "aja-var": "-22.06%",
+            "rat-avg": "-0.78%",
+            "rat-var": "-7.01%",
+            "ajt-avg": "-43.95%",
+            "ajt-var": "-2.82%",
+            "drt-avg": "-23.53%",
+            "drt-var": "0.11%",
+            "v-avg": "-58.76%",
+            "v-var": "-76.28%"
           },
           "wallhack-stealth": {
-            "avgKill": "136.71%",
-            "special_hit_ratio": "54.88%",
-            "oneTapPercentage": "19.84%",
-            "precision": "66.39%",
-            "ratio of hit when moving": "281.58%",
-            "flashEfficiency": "56.75%",
-            "avg_TTK": "4.55%",
-            "var_TTK": "33.63%",
-            "occluderKill": "0.00%",
-            "firstHitPrecision": "42.61%",
-            "inertialShotPercentage": "4.28%",
-            "Var_hit_group": "-27.68%",
-            "propsStats": "-4.46%",
-            "BlindKillPercentage": "#DIV/0!",
-            "CHPrecision": "39.42%",
-            "firstKillRate": "106.90%",
-            "avg_delta": "-45.50%",
-            "var_delta": "-38.52%",
-            "avg_gamma": "-16.61%",
-            "var_gamma": "-17.88%",
-            "avg_t0_t1_duration": "20.10%",
-            "var_t0_t1_duration": "-9.51%",
-            "avg_t1_t2_duration": "-27.74%",
-            "var_t1_t2_duration": "-16.59%",
-            "avg_duration": "-7.56%",
-            "var_duration": "-14.88%",
-            "avg_speed": "-4.57%",
-            "var_speed": "-12.50%"
+            "akpr": "136.71%",
+            "shr": "54.88%",
+            "otp": "19.84%",
+            "precis": "66.39%",
+            "shp": "281.58%",
+            "fei": "56.75%",
+            "ttk-avg": "4.55%",
+            "ttk-var": "33.63%",
+            "opi": "0.00%",
+            "fhp": "42.61%",
+            "isp": "4.28%",
+            "hgd": "-27.68%",
+            "pui": "-4.46%",
+            "bkp": "#DIV/0!",
+            "chp": "39.42%",
+            "fbp": "106.90%",
+            "raa-avg": "-45.50%",
+            "raa-var": "-38.52%",
+            "aja-avg": "-16.61%",
+            "aja-var": "-17.88%",
+            "rat-avg": "20.10%",
+            "rat-var": "-9.51%",
+            "ajt-avg": "-27.74%",
+            "ajt-var": "-16.59%",
+            "drt-avg": "-7.56%",
+            "drt-var": "-14.88%",
+            "v-avg": "-4.57%",
+            "v-var": "-12.50%"
           }
         };
 
-        // Tooltip content mapping for each key
+        
         const tooltipMapping = {
-          'avg_TTK': 'Average Time To Kill (TTK) measures the average duration from targeting an enemy to defeating them.',
-          'var_TTK': 'Variability of Time To Kill, indicating consistency across different sessions.',
-          'avg_delta': 'Average change in positioning angles.',
-          'var_delta': 'Variability in angle changes.',
-          'avg_gamma': 'Average gamma values, representing...',
-          'var_gamma': 'Variability of gamma values.',
-          'avg_t0_t1_duration': 'Average duration between two specific game events.',
-          'var_t0_t1_duration': 'Variability in duration between these events.',
-          // Add additional mappings for other keys
+          'ttk-avg': 'Time to kill (ttk) average. Denotes the average time regarding ttk of the current player among one match. The lower this feature is, the shorter the time the player kills victims. ttk denote the duration from the moment of the first damage caused to an opponent to the moment of the elimination of the opponent.',
+          'ttk-var': 'Time to kill (ttk) variance. Denotes the degree of dispersion of ttk distributions of the current player among one match. ttk denote the duration from the moment of the first damage caused to an opponent to the moment of the elimination of the opponent.',
+          'raa-avg': 'Reaction angle (raa) average. Denotes the average performance regarding raa of the current player among one match. The lower the feature is, the smaller the angle and the less effort the player aims for and puts into reaching their targets. raa reflects the angle of two cross-hair directions at the moment spot the opponent and the moment first firing applied respectively.',
+          'raa-var': 'Reaction angle (raa) variance. Denotes the degree of dispersion of raa distributions of the current player among one match. raa reflects the angle of two cross-hair directions at the moment spot the opponent and the moment first firing applied respectively.',
+          'aja-avg': 'Adjustment angle (aja) average. Denotes the average performance regarding aja of the current player among one match. The lower the feature is, the smaller angle and the less effort the player fires for and puts into hitting their targets. aja reflects the angle of two cross-hair directions at the moment first firing applied and the moment first casuing damage to the opponenet respectively.',
+          'aja-var': 'Adjustment angle (aja) variance. Denotes the degree of dispersion of aja distributions of the current player among one match. aja reflects the angle of two cross-hair directions at the moment first firing applied and the moment first casuing damage to the opponenet respectively.',
+          'rat-avg': 'Reaction time (rat) average. Denotes the average performance regarding rat of the current player among one match. The lower this feature is, the faster the player reacts. rat denotes the elapsed period from the moment spot the opponent and the moment first firing applied.',
+          'rat-var': 'Reaction time (rat) variance. Denotes the degree of dispersion of rat distributions of the current player among one match. rat denotes the elapsed period from the moment spot the opponent and the moment first firing applied.',
+          "ajt-avg": "Adjustment time (ajt) average. Denotes the average performance regarding ajt of the current player among one match. The lower this feature is, the faster the player adjusts. ajt denotes the elapsed period from the moment first firing applied and the moment first casuing damage to the opponenet.",
+          "ajt-var": "Adjustment time (ajt) variance. Denotes the degree of dispersion of ajt distributions of the current player among one match. ajt denotes the elapsed period from the moment first firing applied and the moment first casuing damage to the opponenet.",
+          "drt-avg": "Duration time (drt) average. Denotes the average performance regarding drt of the current player among one match. The lower this feature is, the faster the player hits. drt denotes the elapsed period from the moment spot the opponenet and the moment first casuing damage to the opponenet.",
+          "drt-var": "Duration time (drt) variance. Denotes the degree of dispersion of drt distributions of the current player among one match. drt denotes the elapsed period from the moment spot the opponenet and the moment first casuing damage to the opponenet.",
+          "v-avg": "Velocity average. Denotes the average mouse velocity of the current player among one match between the moment spot the opponenet and the moment first casuing damage to the opponenet. The higher the feature is, the faster the player hits the targets.",
+          "v-var": "Velocity variance. Denotes the degree of dispersion of the average mouse velocity of the current player among one match between the moment spot the opponenet and the moment first casuing damage to the opponenet.",
+          "chp": "Critical hit percentage (chp). Denote the critical hit rate. Critical hit represents a successful damage event that applies to a particular hit group (typically, head) that deals more damage than a normal blow. chp refers to the ratio of the number of critical hits to the number of damage caused.",
+          "precis": "Precision (precis). Denote the performance of firing accuracy. precis refers to the ratio of the number of damage caused by weapons to the total number of fires applied.",
+          "akpr": "Average kill per round (akpr). Denote the average number of eliminations per round by a player in a match.",
+          "shp": "Strafing hit percentage (shp). Denote fire accuracy while strafing. Strafe allows a player to keep the view focused on an opponent while moving in a different direction. shp refers to the ratio of the number of damage caused while strafing to the number of damage caused.",
+          "fei": "Flash efficiency index (fei). Denote how well a player utilizes the flash grenade. fei refers to the ratio of the total affection duration on the opponents minus that on the friendlies to the total affection duration.",
+          "opi": "Occluder-penetration index (opi). Occluder-penetration denotes the elimination event that happens when the victim is eliminated behind one layer or more layers of occluders by a penetrated bullet. The occluders are typically walls, players (namely wall bang), or smoke. opi refers to a weighted index that reflects the extent of the average occluder-penetration eliminations conducted by the player.",
+          "otp": "Onetap Percentage (otp). Onetap denotes a head-shot fire event on an opponent that results in elimination without the use of sniper rifles, and where the inflicted damage is equal to or greater than 100 (the full health of a player). otp represents the ratio of the number of Onetap instances to the number of times damage is inflicted by normal weapons.",
+          "shr": "Special hit Ratio (shr). Special hit denotes hit with sniper between 50 and 150 meters, head shot with sniper between 40 and 170 meters, hit with normal weapon farther than 800 meters and headshot with normal weapon farther than 700 meters. In FPS games, hitting processes include using different weapons and shooting from different distances. In CS game environment, the aforementioned four types of hits are considered to be potentially cheating combinations. shr denotes the ratio of the sum of the number of the aforementioned four types of special hit to the number of hits in one match.",
+          "isp": "Inertial shot percentage (isp). Inertial shot denotes that after an elimination is conducted by a player, who may apply several extra firings due to the inertia. isp represents the ratio of the number of Inertial shot times to the number of eliminations.",
+          "bkp": "Blind kill percentage (bkp). Denote the percentage of a player performing elimination while blinded. bkp refers to the ratio of the sum of elimination events where the attackers suffer a blinded effect to the number of eliminations.",
+          "fbp": "First-blood percentage (fbp). first-blood denotes the very first elimination in one round. fbp denotes the ratio of the number of first-blood to the number of rounds in one match.",
+          "pui": "Props utilization index (pui). Denote how frequently a player utilizes props such as a high-explosive grenade, Molotov or incendiary, smoke grenade, or flash grenade. pui refers to the ratio of the sum of a player and the number of times different grenades are used to a fixed constant which reflects the maximum number of grenades used within this match for all players.",
+          "hgd": "Hit-group distribution (hgd) variance. Hit group represents the body part that suffers damage, typically hit groups can be categorized as follows: chest, generic, head, neck, left arm, right arm, left leg, right leg, and stomach. hgd variance denotes the degree of dispersion of hit group} distributions for the current player among one match.",
+          "fhp": "First hit percentage (fhp). Denote how accurate a player is while spotting an opponent and reacting to fire. Event reload represents the action of changing the magazine while the firing is performed and the bullet is consumed. Fire round denotes the unit of the firing round. fhp refers to the ratio of the number of the first firing event equivalent to a damage event while spotting at least one opponent within a time threshold to the number of times that the aforementioned event occurs while disregarding the equivalency and within the same time threshold."
         };
       
         const container = document.querySelector('.data-container');
@@ -512,7 +540,7 @@
             const item = document.createElement('div');
             item.className = 'data-item';
             item.innerHTML = `
-              <span>${key}<i class="fas fa-question-circle tooltip-icon" data-toggle="tooltip" title="${tooltip}"></i></span>
+              <span>${key}<i class="fas fa-question-circle tooltip-icon" data-toggle="tooltip" title="${tooltip} For details, please refer to the paper."></i></span>
               <span>${indicator}${displayValue}</span>`;
             container.appendChild(item);
           });
