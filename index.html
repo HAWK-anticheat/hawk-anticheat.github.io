@@ -99,6 +99,60 @@
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
   </style>
+  <style>
+    .data-container {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 20px;
+      background: #f4f4f9; /* 灰色背景 */
+      gap: 10px; /* 项目之间的间隙 */
+    }
+  
+    .data-item {
+      flex: 1 1 200px; /* 确保每个项目至少200px宽，灵活填充 */
+      background: white; /* 白色背景 */
+      border: 1px solid #ccc; /* 边框 */
+      border-radius: 8px; /* 圆角 */
+      padding: 10px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* 阴影效果 */
+      display: flex;
+      justify-content: space-between; /* 标签和值之间的空间 */
+      align-items: center; /* 垂直居中 */
+    }
+  
+    .data-label {
+      font-weight: bold; /* 加粗标签 */
+    }
+  
+    .data-value {
+      color: #333; /* 深灰色文本 */
+    }
+  </style> 
+  <style>
+    .negative-indicator {
+      color: red;
+      margin-right: 5px;
+    }
+    .positive-indicator {
+      color: green;
+      margin-right: 5px;
+    }
+    .tooltip-icon {
+      margin-left: 5px;
+      color: #333; /* Adjust color to fit your design */
+      cursor: help;
+    }
+    .data-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      margin-bottom: 5px;
+      background: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+  </style>
 </head>
 
 <!-- Body -->
@@ -162,9 +216,15 @@
 
   <div class="note-text text-left">
     Note:
-    <p>1. HUDs that may disclose any information are hidden to fulfill anonymous submission requirements;</p>
+    <p>1. HUDs (in-game UI overlays, e.g., health bar, navigation map, avatar's ID, kill info, etc.) that may disclose any information are hidden to fulfill anonymous submission requirements;</p>
     2. X-Ray (highlighted character borders can be seen through obstacles) is activated for better illustration purpose. In real-world matches, the normal players will not obtain this function.
   </div>
+
+  <div class="data-container text-center mt-4">
+    <h4 class="mb-4">Selected Features Explanation</h4>
+    <!-- Dynamic data items will be added here -->
+  </div>
+  
 
   <!-- JavaScripts -->
   <script>
@@ -222,9 +282,251 @@
           descriptionContainer.textContent = description;
         }
 
+       // Add this function call inside your existing updateVideoUrl function
+       // updateDataDisplay(); // This will update the data display when options change
+
         console.log(`Updated to: ${key} - URL: ${videoUrl} - Description: ${description}`);
       }
+      updateVideoUrl(); // Call this function on page load to initialize everything
     });
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // 定义数据
+        const dataMapping = {
+          "aimbot-blatant": {
+            "avg_TTK": "-30.70%",
+            "var_TTK": "-47.62%",
+            "avg_delta": "76.95%",
+            "var_delta": "66.56%",
+            "avg_gamma": "-74.71%",
+            "var_gamma": "-82.67%",
+            "avg_t0_t1_duration": "-13.12%",
+            "var_t0_t1_duration": "-15.16%",
+            "avg_t1_t2_duration": "-43.87%",
+            "var_t1_t2_duration": "-44.08%",
+            "avg_duration": "-28.68%",
+            "var_duration": "-35.75%",
+            "avg_speed": "43.27%",
+            "var_speed": "158.05%",
+            "CHPrecision": "110.91%",
+            "precision": "80.35%",
+            "avgKill": "291.30%",
+            "ratio of hit when moving": "-100.00%",
+            "flashEfficiency": "256.44%",
+            "occluderKill": "471.43%",
+            "oneTapPercentage": "-12.23%",
+            "special_hit_ratio": "-2.59%",
+            "inertialShotPercentage": "5.67%",
+            "BlindKillPercentage": "#DIV/0!",
+            "firstKillRate": "163.16%",
+            "propsStats": "162.14%",
+            "Var_hit_group": "0.38%",
+            "firstHitPrecision": "19.01%"
+          },
+          "aimbot-disguised": {
+            "avg_TTK": "-50.27%",
+            "var_TTK": "-19.71%",
+            "avg_delta": "-6.99%",
+            "var_delta": "-7.87%",
+            "avg_gamma": "-92.44%",
+            "var_gamma": "-99.74%",
+            "avg_t0_t1_duration": "-8.66%",
+            "var_t0_t1_duration": "49.72%",
+            "avg_t1_t2_duration": "-59.49%",
+            "var_t1_t2_duration": "-69.95%",
+            "avg_duration": "-35.60%",
+            "var_duration": "-75.78%",
+            "avg_speed": "-42.80%",
+            "var_speed": "23.39%",
+            "CHPrecision": "113.19%",
+            "precision": "77.96%",
+            "avgKill": "201.89%",
+            "ratio of hit when moving": "-100.00%",
+            "flashEfficiency": "357.77%",
+            "occluderKill": "-100.00%",
+            "oneTapPercentage": "326.75%",
+            "special_hit_ratio": "25.53%",
+            "inertialShotPercentage": "8.91%",
+            "BlindKillPercentage": "#DIV/0!",
+            "firstKillRate": "471.43%",
+            "propsStats": "-59.46%",
+            "Var_hit_group": "43.06%",
+            "firstHitPrecision": "109.14%"
+          },
+          "aimbot-stealth": {
+            "avg_TTK": "-10.92%",
+            "var_TTK": "-15.68%",
+            "avg_delta": "-51.56%",
+            "var_delta": "-46.64%",
+            "avg_gamma": "-37.76%",
+            "var_gamma": "-60.87%",
+            "avg_t0_t1_duration": "-33.18%",
+            "var_t0_t1_duration": "45.90%",
+            "avg_t1_t2_duration": "-0.36%",
+            "var_t1_t2_duration": "-25.77%",
+            "avg_duration": "-15.60%",
+            "var_duration": "-23.38%",
+            "avg_speed": "-15.01%",
+            "var_speed": "-6.54%",
+            "CHPrecision": "57.68%",
+            "precision": "3.01%",
+            "avgKill": "157.14%",
+            "ratio of hit when moving": "205.25%",
+            "flashEfficiency": "-75.67%",
+            "occluderKill": "400.00%",
+            "oneTapPercentage": "-14.60%",
+            "special_hit_ratio": "71.49%",
+            "inertialShotPercentage": "2.37%",
+            "BlindKillPercentage": "31.27%",
+            "firstKillRate": "90.48%",
+            "propsStats": "58.42%",
+            "Var_hit_group": "-39.44%",
+            "firstHitPrecision": "17.35%"
+          },
+          "wallhack-blatant": {
+            "avgKill": "307.55%",
+            "special_hit_ratio": "80.35%",
+            "oneTapPercentage": "318.48%",
+            "precision": "93.68%",
+            "ratio of hit when moving": "-100.00%",
+            "flashEfficiency": "-6.84%",
+            "avg_TTK": "13.75%",
+            "var_TTK": "105.86%",
+            "occluderKill": "540.00%",
+            "firstHitPrecision": "125.73%",
+            "inertialShotPercentage": "5.99%",
+            "Var_hit_group": "174.77%",
+            "propsStats": "201.64%",
+            "BlindKillPercentage": "#DIV/0!",
+            "CHPrecision": "284.89%",
+            "firstKillRate": "605.88%",
+            "avg_delta": "2.11%",
+            "var_delta": "54.08%",
+            "avg_gamma": "-45.62%",
+            "var_gamma": "-41.59%",
+            "avg_t0_t1_duration": "-27.21%",
+            "var_t0_t1_duration": "19.66%",
+            "avg_t1_t2_duration": "-12.13%",
+            "var_t1_t2_duration": "4.61%",
+            "avg_duration": "-18.70%",
+            "var_duration": "0.23%",
+            "avg_speed": "118.64%",
+            "var_speed": "366.95%"
+          },
+          "wallhack-disguised": {
+            "avgKill": "216.22%",
+            "special_hit_ratio": "-49.90%",
+            "oneTapPercentage": "110.08%",
+            "precision": "123.74%",
+            "ratio of hit when moving": "-11.48%",
+            "flashEfficiency": "29.49%",
+            "avg_TTK": "-19.09%",
+            "var_TTK": "-33.08%",
+            "occluderKill": "350.00%",
+            "firstHitPrecision": "109.13%",
+            "inertialShotPercentage": "19.81%",
+            "Var_hit_group": "-39.85%",
+            "propsStats": "125.00%",
+            "BlindKillPercentage": "#DIV/0!",
+            "CHPrecision": "27.49%",
+            "firstKillRate": "270.59%",
+            "avg_delta": "-15.04%",
+            "var_delta": "-9.63%",
+            "avg_gamma": "-59.87%",
+            "var_gamma": "-22.06%",
+            "avg_t0_t1_duration": "-0.78%",
+            "var_t0_t1_duration": "-7.01%",
+            "avg_t1_t2_duration": "-43.95%",
+            "var_t1_t2_duration": "-2.82%",
+            "avg_duration": "-23.53%",
+            "var_duration": "0.11%",
+            "avg_speed": "-58.76%",
+            "var_speed": "-76.28%"
+          },
+          "wallhack-stealth": {
+            "avgKill": "136.71%",
+            "special_hit_ratio": "54.88%",
+            "oneTapPercentage": "19.84%",
+            "precision": "66.39%",
+            "ratio of hit when moving": "281.58%",
+            "flashEfficiency": "56.75%",
+            "avg_TTK": "4.55%",
+            "var_TTK": "33.63%",
+            "occluderKill": "0.00%",
+            "firstHitPrecision": "42.61%",
+            "inertialShotPercentage": "4.28%",
+            "Var_hit_group": "-27.68%",
+            "propsStats": "-4.46%",
+            "BlindKillPercentage": "#DIV/0!",
+            "CHPrecision": "39.42%",
+            "firstKillRate": "106.90%",
+            "avg_delta": "-45.50%",
+            "var_delta": "-38.52%",
+            "avg_gamma": "-16.61%",
+            "var_gamma": "-17.88%",
+            "avg_t0_t1_duration": "20.10%",
+            "var_t0_t1_duration": "-9.51%",
+            "avg_t1_t2_duration": "-27.74%",
+            "var_t1_t2_duration": "-16.59%",
+            "avg_duration": "-7.56%",
+            "var_duration": "-14.88%",
+            "avg_speed": "-4.57%",
+            "var_speed": "-12.50%"
+          }
+        };
+
+        // Tooltip content mapping for each key
+        const tooltipMapping = {
+          'avg_TTK': 'Average Time To Kill (TTK) measures the average duration from targeting an enemy to defeating them.',
+          'var_TTK': 'Variability of Time To Kill, indicating consistency across different sessions.',
+          'avg_delta': 'Average change in positioning angles.',
+          'var_delta': 'Variability in angle changes.',
+          'avg_gamma': 'Average gamma values, representing...',
+          'var_gamma': 'Variability of gamma values.',
+          'avg_t0_t1_duration': 'Average duration between two specific game events.',
+          'var_t0_t1_duration': 'Variability in duration between these events.',
+          // Add additional mappings for other keys
+        };
+      
+        const container = document.querySelector('.data-container');
+
+        function getCurrentSelection() {
+          const dataset = document.querySelector('input[name="dataset"]:checked').value;
+          const cheatLevel = document.querySelector('input[name="cheatLevel"]:checked').value;
+          return `${dataset}-${cheatLevel}`;
+        }
+      
+        function updateDataDisplayNovel() {
+          const selectionKey = getCurrentSelection();
+          const selectedData = dataMapping[selectionKey] || {};
+          container.innerHTML = ''; // Clear existing data items
+      
+          Object.keys(selectedData).forEach(key => {
+            const value = selectedData[key];
+            const isNegative = value.startsWith('-');
+            const indicator = isNegative ? '<span class="negative-indicator">▼</span>' : '<span class="positive-indicator">▲</span>';
+            const displayValue = isNegative ? value.substring(1) : value; // Remove the negative sign if present
+            const tooltip = tooltipMapping[key] || 'No description available'; // Fallback tooltip text
+      
+            const item = document.createElement('div');
+            item.className = 'data-item';
+            item.innerHTML = `
+              <span>${key}<i class="fas fa-question-circle tooltip-icon" data-toggle="tooltip" title="${tooltip}"></i></span>
+              <span>${indicator}${displayValue}</span>`;
+            container.appendChild(item);
+          });
+      
+          // Initialize tooltips
+          $('[data-toggle="tooltip"]').tooltip();
+        }
+      
+        document.querySelectorAll('input[type="radio"][name="dataset"], input[type="radio"][name="cheatLevel"]').forEach(radio => {
+          radio.addEventListener('change', updateDataDisplayNovel);
+        });
+      
+        updateDataDisplayNovel(); // Initialize the data display on page load
+      });
     </script>
 
   <!-- jQuery -->
@@ -262,3 +564,4 @@
   <script src="./assets/js/common.js"></script>
 </body>
 </html>
+
