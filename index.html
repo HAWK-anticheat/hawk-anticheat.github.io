@@ -112,7 +112,7 @@
     .data-container {
       display: flex;
       flex-wrap: wrap;
-      padding: 20px;
+      padding: 0px;
       background: #ffffff;
       gap: 10px; 
       font-weight: bold;
@@ -163,6 +163,10 @@
       background: #fff;
       border-radius: 5px;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .btn-primary {
+      background: white; 
+      padding: 5px 10px; /* Adjust the top/bottom and left/right padding as needed */
     }
   </style>
 </head>
@@ -228,14 +232,38 @@
     <p>1. HUDs (in-game UI overlays, e.g., health bar, navigation map, avatar's ID, kill info, etc.) that may disclose any information are hidden to fulfill anonymous submission requirements;</p>
     2. X-Ray (highlighted character borders can be seen through obstacles) is activated for better illustration purpose. In real-world matches, the normal players will not obtain this function.
   </div>
+
   <div class="note-text">
     <div class="options-title text-center">
       Selected Feature Average Growth Rate
-      <span><i class="fas fa-question-circle tooltip-icon" data-html="true" data-toggle="tooltip" title="We chose representive features to further illustrate the differences between cheaters and normal players at the data level. The percentage represents the average growth rate among one match, i.e., <span color='white'>$$\frac{{Value}_{cheater}-{AVG}_{normal}}{{AVG}_{normal}}\times100\%$$</span>. <i class='negative-indicator'>▼</i> represents the decrease compared to the feature's avarage value in the match; <i class='positive-indicator'>▲</i> indicates the increase compared to the feature's avarage value in the match."></i></span>
+      <br>
+      <button class="btn btn-primary" data-toggle="modal" data-target="#mathModal"><i class="fas fa-question-circle" data-html="true"></i> What is this?</button>
     </div>
-    <!-- ((value[cheater] - avg[normal])/avg[normal])*100% -->
     <div class="data-container text-center mt-4">
       <!-- Dynamic data items will be added here -->
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="mathModal" tabindex="-1" role="dialog" aria-labelledby="mathModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="mathModalLabel">Selected Feature Average Growth Rate</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          We chose representative features to further illustrate the differences between cheaters and normal players at the data level. For comparison purpose, we introduce average growth rate, which represents the percental difference between the average and the selected sample. 
+          $$Average Growth Rate=\frac{{\text{Value}_{\text{cheater}} - \text{AVG}_{\text{normal}}}}{\text{AVG}_{\text{normal}}} \times 100\%$$ 
+          Where \(\text{Value}_{\text{cheater}}\) denotes the feature's value of the cheater; \(\text{AVG}_{\text{normal}}\) denotes the average value among all participants of the same feature in the match.
+          <i class='negative-indicator'>▼</i> represents the decrease compared to the feature's average value in the match; <i class='positive-indicator'>▲</i> indicates the increase compared to the feature's average value in the match.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
     </div>
   </div>
 
