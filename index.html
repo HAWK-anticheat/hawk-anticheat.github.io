@@ -9,7 +9,7 @@
   <title>Detect Like Pros: A Pathfinder of Next-Generation Anti-Cheat Framework for FPS Games</title>
   <meta name="author" content="Anonymous" />
   <meta name="description" content="HAWK" />
-  <meta name="keywords" content=" " />
+  <meta name="keywords" content="HAWK-Anti-Cheat" />
 
   <!-- Bootstrap & MDB -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -41,7 +41,10 @@
     gtag('js', new Date());
     gtag('config', 'G-VHPFHC4JTP');
   </script>
-
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
   <style>
     body {
       font-family: 'Arial', sans-serif;
@@ -127,7 +130,7 @@
       align-items: center; 
       font-weight: bold;
     }
-  
+
     .data-label {
       font-weight: bold; 
     }
@@ -227,9 +230,10 @@
   </div>
   <div class="note-text">
     <div class="options-title text-center">
-      Selected Features
-      <span><i class="fas fa-question-circle tooltip-icon" data-html="true" data-toggle="tooltip" title="We chose representive features to further illustrate the differences between cheaters and normal players at the data level. The percentage represents the average growth rate among one match, i.e., P%=((value[cheater] - avg[normal])/avg[normal])*100%. <i class='negative-indicator'>▼</i> represents the decrease compared to the feature's avarage value in the match; <i class='positive-indicator'>▲</i> indicates the increase compared to the feature's avarage value in the match."></i></span>
+      Selected Feature Average Growth Rate
+      <span><i class="fas fa-question-circle tooltip-icon" data-html="true" data-toggle="tooltip" title="We chose representive features to further illustrate the differences between cheaters and normal players at the data level. The percentage represents the average growth rate among one match, i.e., <span color='white'>$$\frac{{Value}_{cheater}-{AVG}_{normal}}{{AVG}_{normal}}\times100\%$$</span>. <i class='negative-indicator'>▼</i> represents the decrease compared to the feature's avarage value in the match; <i class='positive-indicator'>▲</i> indicates the increase compared to the feature's avarage value in the match."></i></span>
     </div>
+    <!-- ((value[cheater] - avg[normal])/avg[normal])*100% -->
     <div class="data-container text-center mt-4">
       <!-- Dynamic data items will be added here -->
     </div>
@@ -307,8 +311,6 @@
             "ttk-avg": "-30.70%",
             "ttk-var": "-47.62%",
             "raa-avg": "76.95%",
-            "raa-var": "66.56%",
-            "aja-avg": "-74.71%",
             "aja-var": "-82.67%",
             "rat-avg": "-13.12%",
             "rat-var": "-15.16%",
@@ -317,80 +319,49 @@
             "drt-avg": "-28.68%",
             "drt-var": "-35.75%",
             "v-avg": "43.27%",
-            "v-var": "158.05%",
             "chp": "110.91%",
             "precis": "80.35%",
             "akpr": "291.30%",
-            "shp": "-100.00%",
-            "fei": "256.44%",
+            "fei": "-256.44%",
             "opi": "471.43%",
-            "otp": "-12.23%",
-            "shr": "-2.59%",
-            "isp": "5.67%",
-            "bkp": "#DIV/0!",
-            "fbp": "163.16%",
-            "pui": "162.14%",
-            "hgd": "0.38%",
-            "fhp": "19.01%"
+            "fbp": "163.16%"
           },
           "aimbot-disguised": {
             "ttk-avg": "-50.27%",
-            "ttk-var": "-19.71%",
             "raa-avg": "-6.99%",
             "raa-var": "-7.87%",
             "aja-avg": "-92.44%",
             "aja-var": "-99.74%",
-            "rat-avg": "-8.66%",
-            "rat-var": "49.72%",
             "ajt-avg": "-59.49%",
             "ajt-var": "-69.95%",
             "drt-avg": "-35.60%",
             "drt-var": "-75.78%",
             "v-avg": "-42.80%",
-            "v-var": "23.39%",
             "chp": "113.19%",
             "precis": "77.96%",
             "akpr": "201.89%",
-            "shp": "-100.00%",
-            "fei": "357.77%",
-            "opi": "-100.00%",
+            "fei": "-357.77%",
             "otp": "326.75%",
-            "shr": "25.53%",
-            "isp": "8.91%",
-            "bkp": "#DIV/0!",
             "fbp": "471.43%",
-            "pui": "-59.46%",
-            "hgd": "43.06%",
             "fhp": "109.14%"
           },
           "aimbot-stealth": {
             "ttk-avg": "-10.92%",
-            "ttk-var": "-15.68%",
             "raa-avg": "-51.56%",
             "raa-var": "-46.64%",
             "aja-avg": "-37.76%",
             "aja-var": "-60.87%",
             "rat-avg": "-33.18%",
-            "rat-var": "45.90%",
             "ajt-avg": "-0.36%",
-            "ajt-var": "-25.77%",
             "drt-avg": "-15.60%",
-            "drt-var": "-23.38%",
             "v-avg": "-15.01%",
-            "v-var": "-6.54%",
             "chp": "57.68%",
-            "precis": "3.01%",
             "akpr": "157.14%",
-            "shp": "205.25%",
             "fei": "-75.67%",
-            "opi": "400.00%",
-            "otp": "-14.60%",
             "shr": "71.49%",
-            "isp": "2.37%",
             "bkp": "31.27%",
             "fbp": "90.48%",
             "pui": "58.42%",
-            "hgd": "-39.44%",
             "fhp": "17.35%"
           },
           "wallhack-blatant": {
@@ -398,47 +369,27 @@
             "shr": "80.35%",
             "otp": "318.48%",
             "precis": "93.68%",
-            "shp": "-100.00%",
-            "fei": "-6.84%",
-            "ttk-avg": "13.75%",
-            "ttk-var": "105.86%",
             "opi": "540.00%",
             "fhp": "125.73%",
-            "isp": "5.99%",
-            "hgd": "174.77%",
-            "pui": "201.64%",
-            "bkp": "#DIV/0!",
             "chp": "284.89%",
             "fbp": "605.88%",
-            "raa-avg": "2.11%",
-            "raa-var": "54.08%",
             "aja-avg": "-45.62%",
             "aja-var": "-41.59%",
             "rat-avg": "-27.21%",
-            "rat-var": "19.66%",
             "ajt-avg": "-12.13%",
-            "ajt-var": "4.61%",
             "drt-avg": "-18.70%",
-            "drt-var": "0.23%",
-            "v-avg": "118.64%",
-            "v-var": "366.95%"
+            "v-avg": "118.64%"
           },
           "wallhack-disguised": {
             "akpr": "216.22%",
-            "shr": "-49.90%",
             "otp": "110.08%",
             "precis": "123.74%",
-            "shp": "-11.48%",
-            "fei": "29.49%",
             "ttk-avg": "-19.09%",
             "ttk-var": "-33.08%",
             "opi": "350.00%",
             "fhp": "109.13%",
-            "isp": "19.81%",
             "hgd": "-39.85%",
             "pui": "125.00%",
-            "bkp": "#DIV/0!",
-            "chp": "27.49%",
             "fbp": "270.59%",
             "raa-avg": "-15.04%",
             "raa-var": "-9.63%",
@@ -448,10 +399,7 @@
             "rat-var": "-7.01%",
             "ajt-avg": "-43.95%",
             "ajt-var": "-2.82%",
-            "drt-avg": "-23.53%",
-            "drt-var": "0.11%",
-            "v-avg": "-58.76%",
-            "v-var": "-76.28%"
+            "drt-avg": "-23.53%"
           },
           "wallhack-stealth": {
             "akpr": "136.71%",
@@ -462,22 +410,14 @@
             "fei": "56.75%",
             "ttk-avg": "4.55%",
             "ttk-var": "33.63%",
-            "opi": "0.00%",
             "fhp": "42.61%",
-            "isp": "4.28%",
             "hgd": "-27.68%",
-            "pui": "-4.46%",
-            "bkp": "#DIV/0!",
             "chp": "39.42%",
             "fbp": "106.90%",
             "raa-avg": "-45.50%",
             "raa-var": "-38.52%",
             "aja-avg": "-16.61%",
             "aja-var": "-17.88%",
-            "rat-avg": "20.10%",
-            "rat-var": "-9.51%",
-            "ajt-avg": "-27.74%",
-            "ajt-var": "-16.59%",
             "drt-avg": "-7.56%",
             "drt-var": "-14.88%",
             "v-avg": "-4.57%",
