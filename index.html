@@ -130,7 +130,11 @@
       align-items: center; 
       font-weight: bold;
     }
-
+    .feature-descriptions {
+      font-weight: normal;
+      margin-top: 20px;
+      margin-bottom: 0px;
+    }
     .data-label {
       font-weight: bold; 
     }
@@ -176,7 +180,7 @@
   <div class="container project_container mt-5">
     <header class="project-title text-center mb-4">
       <h1>Detect Like Pros: A Pathfinder of Next-Generation Anti-Cheat Framework for FPS Games</h1>
-      <h2>Selected Offical Inspection Escapees Demo</h2>
+      <h2>Offical Inspection Escapees Demo</h2>
     </header>
 
     <div class="options-container text-center">
@@ -242,6 +246,9 @@
     <div class="data-container text-center mt-4">
       <!-- Dynamic data items will be added here -->
     </div>
+    <div class="feature-descriptions text-center">
+
+    </div>
   </div>
 
   <!-- Modal -->
@@ -255,7 +262,7 @@
           </button>
         </div>
         <div class="modal-body">
-          We chose representative features to further illustrate the differences between cheaters and normal players at the data level. For comparison purpose, we introduce average growth rate, which represents the percental difference between the average and the selected sample. 
+          We chose representative features to further illustrate the differences between the cheater and normal players at the data level. For comparison purpose, we introduce average growth rate, which represents the percental difference between the average and the selected sample. 
           $$Average Growth Rate=\frac{{\text{Value}_{\text{cheater}} - \text{AVG}_{\text{normal}}}}{\text{AVG}_{\text{normal}}} \times 100\%$$ 
           Where \(\text{Value}_{\text{cheater}}\) denotes the feature's value of the cheater; \(\text{AVG}_{\text{normal}}\) denotes the average value among all participants of the same feature in the match.
           <i class='negative-indicator'>▼</i> represents the decrease compared to the feature's average value in the match; <i class='positive-indicator'>▲</i> indicates the increase compared to the feature's average value in the match.
@@ -333,6 +340,37 @@
     </script>
     <script>
       document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('input[type="radio"]').forEach(radio => {
+          radio.addEventListener('change', updateFeatureDescription);
+        });
+
+        function updateFeatureDescription() {
+          const dataset = document.querySelector('input[name="dataset"]:checked').value;
+          const cheatLevel = document.querySelector('input[name="cheatLevel"]:checked').value;
+
+          const descriptionMapping = {
+            'aimbot-blatant': 'From the above data, it can be concluded that the blatant aimbot cheater is significantly better than average in features related to aiming, firing, and killing. For example, the cheater\'s mean and variance of time-to-kill, reaction time, adjustment time, and duration time are all at least a dozen percentage points lower than the mean of the same game. This means that the reaction time, adjustment time, and duration time to kill after spotting the enemy are shorter, and the variance of the duration time is smaller (the data are more consistent and uniform). Meanwhile, the reaction angle and mouse\'s velocity means are significantly higher than the average. This means that the cheater can conduct elimination faster and more accurate in more difficult targeting situations (where the enemy is at a greater angle from the cheater\'s aim). Meanwhile, precision, average kill per round, occluder-penetration index and first blood percentage are all significantly higher than the average, showing its overly good aiming and shooting. Because of this, the cheater do not use auxiliary props (e.g., flashbangs) to gain fair advantage in combat as normal people do. As a result, the cheater\'s flash efficiency index is significantly lower than average.',
+            'aimbot-disguised': 'From the above data, it can be concluded that the disguised aimbot cheater\'s mean values of time-to-kill and mouse movement velocity, and the mean and variance of reaction angle, adjustment angle, adjustment time, and duration time are lower than the averages of the match. This indicates that the aiming, reaction, shooting and adjustment angle, speed, and duration time are all lower than the average, which can be inferred that this is a wallhack-mixed aimbot (i.e., it has both the perspective of a wallhack and the auto-aiming ability of an aimbot). Due to the wallhack, the cheater can get prepared and camouflage before the enemy appears. As a result, it sometimes doesn\'t look like a cheater. However, through critical hit percentage, precision, average kill per round, onetap percentage, first-blood percentage, and first hit percentage are significantly higher than the averages, showing its overly good aiming and shooting. Because of this, the cheater do not use auxiliary props (e.g., flashbangs) to gain fair advantage in combat as normal people do. As a result, the cheater\'s flash efficiency index is significantly lower than average.',
+            'aimbot-stealth': 'From the above data, it can be concluded that the stealth aimbot cheater\'s features related to aiming, firing, and shooting are almost indistinguishable from the average, and his props utilization index and flash efficiency index are much higher than the average, except for his preaiming (reaction and adjustment angles, which are lower than the average) is suspicious. This can be sensually misleading as an experienced player. However, the features related to kills and damage are too anomalous, such as blind kill percentage, first blood percentage, average kill per round, special hit ratio, and first hit percentage are all higher than the average.',
+            'wallhack-blatant': 'From the above data, it can be concluded that the blatant wallhack cheater\'s elimination-related features (average kill per round, special hit ratio, onetap percentage, precision, occluder-penetration index, first hit percentage, critical hit percentage, and first blood percentage) are all significantly higher than average. first hit percentage, critical hit percentage, and first blood percentage) are all significantly higher than the mean, especially fbp and opi, which clearly reflect that the wallhack cheater possesses illegal access to enemy location information. In addition, the wallhack cheater have the enemy\'s locations, so his reaction and adjustment related features are smaller in angle and time.',
+            'wallhack-disguised': 'From the above data, it can be concluded that the disguised wallhack cheater intentionally used a lot of props in order to disguise his cheating behavior (props utilization rate is much higher than the mean value). However, the cheater\'s elimination-related features (average kill per round, special hit ratio, onetap percentage, precision, occluder-penetration index, first hit percentage, critical hit percentage, and first blood percentage) were all significant. hit percentage, and first blood percentage) were all significantly higher than average. In addition, wallhack cheaters have a smaller angle and time to aim (reaction and adjustment related features) because they have information about the enemy\'s position. Therefore, although some of the sensory behaviors may affect the judgment subjectively, the cheating behaviors are still obvious at the data level.',
+            'wallhack-stealth': 'From the above data, it can be concluded that the stealth wallhack cheater is similar to the mean in most of its features at the data level and is good at camouflaging (e.g., its flash efficiency index is higher than the mean, and its aiming and firing-related features are slightly lower than the mean). However, its kill and damage-related features (average kill per round, special hit ratio, precision, strafing hit percentage, critical hit percentage, and first blood percentage) remain significantly higher than the mean.',
+          };
+      
+          const key = `${dataset}-${cheatLevel}`;
+          const description = descriptionMapping[key] || 'Select an option to see the description.';
+
+          const descriptionContainer = document.querySelector('.feature-descriptions');
+          if (descriptionContainer) {
+            descriptionContainer.textContent = description;
+          }
+
+        }
+        updateFeatureDescription(); // Call this function on page load to initialize everything
+      });
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
         
         const dataMapping = {
           "aimbot-blatant": {
@@ -385,7 +423,7 @@
             "v-avg": "-15.01%",
             "chp": "57.68%",
             "akpr": "157.14%",
-            "fei": "-75.67%",
+            "fei": "75.67%",
             "shr": "71.49%",
             "bkp": "31.27%",
             "fbp": "90.48%",
@@ -524,7 +562,6 @@
         updateDataDisplayNovel(); // Initialize the data display on page load
       });
     </script>
-
   <!-- jQuery -->
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
